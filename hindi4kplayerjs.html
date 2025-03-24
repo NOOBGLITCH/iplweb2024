@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sports Stream Player</title>
+    <script src="playerjs2.js"></script>
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <style>
+  #player {
+    height: 100%;
+    width: 100%;
+    border: 2px solid red;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+  }
+
+  html, body {
+    height: 100%;               /* Ensure html and body take up the full screen height */
+    margin: 0;                 /* Remove default body margin */
+    padding: 0;                /* Remove default body padding */
+    overflow: hidden;           /* Prevent scrollbar */
+  }
+</style>
+  </head>
+  <body>
+    <div id="player"></div>
+
+    <script>
+      var player = new Playerjs({
+        id: "player",
+        file: "match1.txt"
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>noobgltch</title>
+    <link rel="stylesheet" href="https://cxh.pages.dev/style.css">
+</head>
+<body>
+    <style>
+        #player {
+            position: absolute;
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
+
+    <div id="player"></div>
+
+    <script src='https://content.jwplatform.com/libraries/KB5zFt7A.js'></script>
+
+    <script>
+        var jwScript = document.createElement('script');
+        jwScript.src = "https://content.jwplatform.com/libraries/KB5zFt7A.js";
+        jwScript.async = true;
+        jwScript.onerror = function() {
+            console.error("Failed to load JW Player library.");
+            document.getElementById("player").innerHTML = "<p>Error loading video player.</p>";
+        };
+        document.head.appendChild(jwScript);
+
+        jwScript.onload = function() {
+            var playerInstance = jwplayer("player").setup({
+ file: "https://otte.live.fly.ww.aiv-cdn.net/pdx-nitro/live/clients/dash/enc/cw64xbclda/out/v1/190f1d69a3d5467f8fb7d9df4339bc49/cenc.mpd",
+                width: "100%",
+                height: "100%",
+                aspectratio: '16:9',
+                preload: 'metadata',
+                autostart: false,
+                 drm: {
+                clearkey: {
+                    key: '1819c82fc27225f5e79ae189ddece0ea',
+                    keyId: '7aa124253d518f18740c5bd932d581a3'
+                }
+            },
+                fallback: {
+                    message: "Your browser does not support the video format or the player."
+                },
+                events: {
+                    error: function(e) {
+                        console.error("JW Player error:", e);
+                        alert("A JW Player error occurred: " + e.message);
+                    }
+                },
+                pip: true,
+                controls: true,
+                title: "amazon prime"
+            });
+
+            playerInstance.on('controls', function(event) {
+                console.log("Controls event:", event);
+            });
+
+            playerInstance.on('displayClick', function(event) {
+                console.log("displayClick event:", event);
+            });
+
+            playerInstance.on('ready', function(event){
+                console.log("player ready", event);
+            })
+
+            playerInstance.on('visualQuality', function(event){
+                console.log("visual quality changed", event);
+            })
+
+            playerInstance.on('bufferChange', function(event){
+                console.log('buffer change', event);
+            })
+
+            playerInstance.on('metaData', function(event){
+                console.log('meta data', event);
+            })
+
+            playerInstance.on('fullScreen', function(event){
+                console.log('full screen event', event);
+            })
+        };
+    </script>
+</body>
+</html>

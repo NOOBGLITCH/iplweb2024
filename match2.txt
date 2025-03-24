@@ -1,0 +1,10 @@
+[
+  {
+    "title": "720p",
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1742761356~acl=/*~hmac=47e826f728d5ef22eabe585c2c2c96fe83aa253c4654cb7723e7fdb27810552b"
+  },
+  {
+    "title": "1080p", 
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1742761356~acl=/*~hmac=47e826f728d5ef22eabe585c2c2c96fe83aa253c4654cb7723e7fdb27810552b"
+  }
+]
