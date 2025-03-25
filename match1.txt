@@ -4,11 +4,19 @@
     "file": "https://mtsft.ruscfd.lat/720p.m3u8"
   },
   {
-    "title": "server 2",
-    "file": ""
+    "title": "1080p",
+    "file": "https://vkvsd211.okcdn.ru:443/hls/8319316200078.m3u8/sig/w-mIrfOCNV0/expires/1742994637833/srcIp/92.62.121.100/urls/45.136.21.86/clientType/14/srcAg/CHROME_ANDROID/mid/10226689977230/8319316200078/8319316200078_high/index.m3u8"
   },
   {
-    "title": "server 3", 
-    "file": "https://vkvsd254.okcdn.ru/hls/8166031362602.m3u8/sig/5lIHb7hPi1Y/expires/1742844491196/srcIp/176.227.240.49/urls/185.226.53.95/clientType/14/srcAg/CHROME_ANDROID/mid/9670939388714/8166031362602/8166031362602_medium/index.m3u8"
+    "title": "720p",
+    "file": "https://vkvsd211.okcdn.ru:443/hls/8319316200078.m3u8/sig/w-mIrfOCNV0/expires/1742994637833/srcIp/92.62.121.100/urls/45.136.21.86/clientType/14/srcAg/CHROME_ANDROID/mid/10226689977230/8319316200078/8319316200078_medium/index.m3u8"
+  },
+  {
+    "title": "480p",
+    "file": "https://vkvsd211.okcdn.ru:443/hls/8319316200078.m3u8/sig/w-mIrfOCNV0/expires/1742994637833/srcIp/92.62.121.100/urls/45.136.21.86/clientType/14/srcAg/CHROME_ANDROID/mid/10226689977230/8319316200078/8319316200078_low/index.m3u8"
+  },
+  {
+    "title": "240p",
+    "file": "https://vkvsd211.okcdn.ru:443/hls/8319316200078.m3u8/sig/w-mIrfOCNV0/expires/1742994637833/srcIp/92.62.121.100/urls/45.136.21.86/clientType/14/srcAg/CHROME_ANDROID/mid/10226689977230/8319316200078/8319316200078_lowest/index.m3u8"
   }
 ]
