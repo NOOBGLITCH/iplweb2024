@@ -4,7 +4,16 @@
     padding: 0;
     font-family: 'Roboto', sans-serif;
 }
-
+#player {
+    height: 500px;
+    width: 100%;
+    border: 2px solid red;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+  }
 body {
     background-color: #31363F;
     color: #F0EDCF;
@@ -15,6 +24,33 @@ body {
 h1, h2, a {
     color: #40A2D8;
 }
+#wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+  }
+  .jwplayer {
+    height: 300px !important;
+  }
+  iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    overflow: hidden;
+  }
+  .responsive-gif {
+    display: block;
+    width: 100%;
+  }
+  .responsive-gif img {
+    display: block;
+    width: 100%;
+    height: 250px;
+    max-height: 300px;
+    border-radius: 50px;
+    object-fit: cover;
+  }
 .responsive {
     display: block;
     width: 100%;
@@ -87,79 +123,10 @@ nav ul li a {
 nav ul li a:hover {
     background-color: #555555;
 }
-#player {
-    height: 600px;
-    width: 100%;
-    border: 2px solid red;
-    margin: 0;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-  }
-  #wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px auto;
-  }
-  .jwplayer {
-    height: 300px !important;
-  }
-  iframe {
-    width: 100%;
-    height: 500px;
-    border: none;
-    overflow: hidden;
-  }
-  .responsive-gif {
-    display: block;
-    width: 100%;
-  }
-  .responsive-gif img {
-    display: block;
-    width: 100%;
-    height: 250px;
-    max-height: 300px;
-    border-radius: 50px;
-    object-fit: cover;
-  }
-.ad-container {
-    margin: 0 auto;  /* Removed extra margin */
-    max-width: 728px;
-    height: 90px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-}
 
-.ad-container iframe {
-    width: 100%;
-    height: 90px;
-    border: none;
-    margin: 0;
-    padding: 0;
-}
-
-@media screen and (max-width: 728px) {
-    .ad-container {
-        width: 100%;
-        height: 60px;  /* Reduced height for mobile */
-        margin: 0;
-        padding: 0;
-    }
-    
-    .ad-container iframe {
-        height: 60px;
-        transform: scale(0.8);  /* Slightly scale down for mobile */
-        transform-origin: center;
-    }
-}
 .card {
     width: 300px;
-    height: 400px;
+    height: 300px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     overflow: hidden;
