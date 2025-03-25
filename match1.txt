@@ -1,14 +1,14 @@
 [
   {
     "title": "server 1",
-    "file": "https://vkvsd254.okcdn.ru/hls/8166031362602.m3u8/sig/5lIHb7hPi1Y/expires/1742844491196/srcIp/176.227.240.49/urls/185.226.53.95/clientType/14/srcAg/CHROME_ANDROID/mid/9670939388714/8166031362602/video.m3u8"
+    "file": "https://mtsft.ruscfd.lat/720p.m3u8"
   },
   {
-    "title": "720p",
-    "file": "https://vkvsd254.okcdn.ru/hls/8166031362602.m3u8/sig/5lIHb7hPi1Y/expires/1742844491196/srcIp/176.227.240.49/urls/185.226.53.95/clientType/14/srcAg/CHROME_ANDROID/mid/9670939388714/8166031362602/8166031362602_high/index.m3u8"
+    "title": "server 2",
+    "file": ""
   },
   {
-    "title": "480p", 
+    "title": "server 3", 
     "file": "https://vkvsd254.okcdn.ru/hls/8166031362602.m3u8/sig/5lIHb7hPi1Y/expires/1742844491196/srcIp/176.227.240.49/urls/185.226.53.95/clientType/14/srcAg/CHROME_ANDROID/mid/9670939388714/8166031362602/8166031362602_medium/index.m3u8"
   }
 ]

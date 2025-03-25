@@ -9,8 +9,13 @@
   <style>
     #player {
       position: absolute;
-      width: 100% !important;
-      height: 100% !important;
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      margin: 0; /* Remove default body margin to ensure player fills the viewport */
+      overflow: hidden; /* Prevent scrollbars */
     }
   </style>
 </head>
@@ -21,28 +26,14 @@
   <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
 
   <script>
-    var jwScript = document.createElement("script");
-    jwScript.src = "https://content.jwplatform.com/libraries/KB5zFt7A.js";
-    jwScript.async = true;
-    jwScript.onerror = function() {
-      console.error("Failed to load JW Player library.");
-      document.getElementById("player").innerHTML = "<p>Error loading video player.</p>";
-    };
-    document.head.appendChild(jwScript);
-    jwScript.onload = function() {
+    document.addEventListener("DOMContentLoaded", function() { //ensure the DOM is fully loaded before running script.
       var playerInstance = jwplayer("player").setup({
-        file: "https://live3.shoq.com.pk/live/eds/Geo_Super/DASH/Geo_Super.mpd",
+        file: "https://xhls.embedxt.site/hls/live.mpd",
         width: "100%",
         height: "100%",
         aspectratio: "16:9",
         preload: "metadata",
         autostart: false,
-        drm: {
-          clearkey: {
-            key: "5732dd242f28338e909dc06cb1a1e5a2",
-            keyId: "7641daa5bacfbb61936c40a221c9e78e",
-          },
-        },
         fallback: {
           message: "Your browser does not support the video format or the player.",
         },
@@ -80,7 +71,7 @@
       playerInstance.on("fullScreen", function(event) {
         console.log("full screen event", event);
       });
-    };
+    });
   </script>
 </body>
 
