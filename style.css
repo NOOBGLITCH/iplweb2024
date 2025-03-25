@@ -124,6 +124,19 @@ nav ul li a:hover {
     border-radius: 50px;
     object-fit: cover;
   }
+  .ad-container {
+    margin: 10px auto;
+    max-width: 728px;
+    height: 90px;
+    overflow: hidden;
+  }
+  
+  @media screen and (max-width: 728px) {
+    .ad-container {
+      width: 100%;
+      height: auto;
+    }
+  }
 .card {
     width: 300px;
     height: 400px;
