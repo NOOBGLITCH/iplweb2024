@@ -1,5 +1,14 @@
 [
   {
+    "title": "server 1",
+"file": "https://myctxa.temycssme.wiki/720p.m3u8"
+  },
+ {
+    "title": "server 2",
+    "file": "https://1a-1791.com/live/r31jzt5k/live-hls/j9la-zn7k/chunklist_i2_DVR.m3u8"
+  },
+  
+  {
     "title": "1080p",
     "file": "https://vkvsd261.okcdn.ru/hls/8172674746922.m3u8/sig/Q7tCqrcRC0M/expires/1742980284849/srcIp/176.227.240.79/urls/185.226.53.53/clientType/14/srcAg/CHROME_ANDROID/mid/9675436469034/8172674746922_high/index.m3u8"
   },
