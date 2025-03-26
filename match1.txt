@@ -5,23 +5,23 @@
   },
  {
     "title": "server 2",
-    "file": "https://1a-1791.com/live/d0t27del/slot-7/877u-83z3/chunklist.m3u8"
+    "file": "https://vsd74.okcdn.ru/hls/8179691489969.m3u8/sig/6vRBoT_dx3A/expires/1743081712512/srcIp/42.106.177.120/urls/185.226.53.96/clientType/1/srcAg/CHROME_ANDROID/mid/9823236333233/8179691489969/video.m3u8?p"
   },
   
   {
     "title": "1080p",
-    "file": "https://vkvsd261.okcdn.ru/hls/8172674746922.m3u8/sig/Q7tCqrcRC0M/expires/1742980284849/srcIp/176.227.240.79/urls/185.226.53.53/clientType/14/srcAg/CHROME_ANDROID/mid/9675436469034/8172674746922_high/index.m3u8"
+    "file": "https://vsd74.okcdn.ru/hls/8179691489969.m3u8/sig/6vRBoT_dx3A/expires/1743081712512/srcIp/42.106.177.120/urls/185.226.53.96/clientType/1/srcAg/CHROME_ANDROID/mid/9823236333233/8179691489969_high/index.m3u8"
   },
   {
     "title": "720p",
-    "file": "https://vkvsd261.okcdn.ru/hls/8172674746922.m3u8/sig/Q7tCqrcRC0M/expires/1742980284849/srcIp/176.227.240.79/urls/185.226.53.53/clientType/14/srcAg/CHROME_ANDROID/mid/9675436469034/8172674746922_medium/index.m3u8"
+    "file": "https://vsd74.okcdn.ru/hls/8179691489969.m3u8/sig/6vRBoT_dx3A/expires/1743081712512/srcIp/42.106.177.120/urls/185.226.53.96/clientType/1/srcAg/CHROME_ANDROID/mid/9823236333233/8179691489969_medium/index.m3u8"
   },
   {
     "title": "480p",
-    "file": "https://vkvsd261.okcdn.ru/hls/8172674746922.m3u8/sig/Q7tCqrcRC0M/expires/1742980284849/srcIp/176.227.240.79/urls/185.226.53.53/clientType/14/srcAg/CHROME_ANDROID/mid/9675436469034/8172674746922_low/index.m3u8"
+    "file": "https://vsd74.okcdn.ru/hls/8179691489969.m3u8/sig/6vRBoT_dx3A/expires/1743081712512/srcIp/42.106.177.120/urls/185.226.53.96/clientType/1/srcAg/CHROME_ANDROID/mid/9823236333233/8179691489969_low/index.m3u8"
   },
   {
     "title": "240p",
-    "file": "https://vkvsd261.okcdn.ru/hls/8172674746922.m3u8/sig/Q7tCqrcRC0M/expires/1742980284849/srcIp/176.227.240.79/urls/185.226.53.53/clientType/14/srcAg/CHROME_ANDROID/mid/9675436469034/8172674746922_lowest/index.m3u8"
+    "file": "https://vsd74.okcdn.ru/hls/8179691489969.m3u8/sig/6vRBoT_dx3A/expires/1743081712512/srcIp/42.106.177.120/urls/185.226.53.96/clientType/1/srcAg/CHROME_ANDROID/mid/9823236333233/8179691489969_lowest/index.m3u8"
   }
 ]
