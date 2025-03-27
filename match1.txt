@@ -12,23 +12,23 @@
     "file": "https://1a-1791.com/live/r31jzt5k/slot-77/oat7-b08v_1080p/media-u8i87dljh_DVR_1361.m3u8"
   },
   {
-    "title": "server 4 astro eng",
-    "file": "https://1a-1791.com/live/y16rq9u0/live-hls/77p4-dymr/chunklist_i2_DVR.m3u8"
+    "title": "server 4 hindi",
+    "file": "https://vkvsd197.okcdn.ru/hls/8180811827754.m3u8/sig/s5sAOtJY--c/expires/1743144679796/srcIp/176.227.240.55/urls/185.226.52.100/clientType/14/srcAg/CHROME_ANDROID/mid/9681002900266/8180811827754/video.m3u8"
   },
   {
-    "title": "1080p",
-    "file": "https://vsd74.okcdn.ru/hls/8179691489969.m3u8/sig/6vRBoT_dx3A/expires/1743081712512/srcIp/42.106.177.120/urls/185.226.53.96/clientType/1/srcAg/CHROME_ANDROID/mid/9823236333233/8179691489969_high/index.m3u8"
+    "title": "1080p hindi",
+    "file": "https://vkvsd197.okcdn.ru/hls/8180811827754.m3u8/sig/s5sAOtJY--c/expires/1743144679796/srcIp/176.227.240.55/urls/185.226.52.100/clientType/14/srcAg/CHROME_ANDROID/mid/9681002900266/8180811827754_high/index.m3u8"
   },
   {
-    "title": "720p",
-    "file": "https://vsd74.okcdn.ru/hls/8179691489969.m3u8/sig/6vRBoT_dx3A/expires/1743081712512/srcIp/42.106.177.120/urls/185.226.53.96/clientType/1/srcAg/CHROME_ANDROID/mid/9823236333233/8179691489969_medium/index.m3u8"
+    "title": "720p hindi",
+    "file": "https://vkvsd197.okcdn.ru/hls/8180811827754.m3u8/sig/s5sAOtJY--c/expires/1743144679796/srcIp/176.227.240.55/urls/185.226.52.100/clientType/14/srcAg/CHROME_ANDROID/mid/9681002900266/8180811827754_medium/index.m3u8"
   },
   {
-    "title": "480p",
-    "file": "https://vsd74.okcdn.ru/hls/8179691489969.m3u8/sig/6vRBoT_dx3A/expires/1743081712512/srcIp/42.106.177.120/urls/185.226.53.96/clientType/1/srcAg/CHROME_ANDROID/mid/9823236333233/8179691489969_low/index.m3u8"
+    "title": "480p hindi",
+    "file": "https://vkvsd197.okcdn.ru/hls/8180811827754.m3u8/sig/s5sAOtJY--c/expires/1743144679796/srcIp/176.227.240.55/urls/185.226.52.100/clientType/14/srcAg/CHROME_ANDROID/mid/9681002900266/8180811827754_low/index.m3u8"
   },
   {
-    "title": "240p",
-    "file": "https://vsd74.okcdn.ru/hls/8179691489969.m3u8/sig/6vRBoT_dx3A/expires/1743081712512/srcIp/42.106.177.120/urls/185.226.53.96/clientType/1/srcAg/CHROME_ANDROID/mid/9823236333233/8179691489969_lowest/index.m3u8"
+    "title": "240p hindi",
+    "file": "https://vkvsd197.okcdn.ru/hls/8180811827754.m3u8/sig/s5sAOtJY--c/expires/1743144679796/srcIp/176.227.240.55/urls/185.226.52.100/clientType/14/srcAg/CHROME_ANDROID/mid/9681002900266/8180811827754_lowest/index.m3u8"
   }
 ]
