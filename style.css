@@ -208,6 +208,37 @@ nav ul li a:hover {
     align-items: center;
     justify-content: center;
 }
+.ad-container {
+    margin: 10px auto;
+    max-width: 300px;
+    height: 250px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+}
+
+.ad-container iframe {
+    width: 300px;
+    height: 250px;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .ad-container {
+        max-width: 100%;
+        height: auto;
+    }
+    
+    .ad-container iframe {
+        width: 100%;
+        height: auto;
+    }
+}
+
 
 .modal-content {
     background-color: #e0e0eb;
