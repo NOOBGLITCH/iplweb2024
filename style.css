@@ -226,19 +226,24 @@ nav ul li a:hover {
     margin: 0;
     padding: 0;
 }
-
-@media screen and (max-width: 768px) {
-    .ad-container {
-        max-width: 100%;
-        height: auto;
-    }
-    
-    .ad-container iframe {
-        width: 100%;
-        height: auto;
-    }
+.ad-container2 {
+    margin: 10px auto;
+    max-width: 728px;
+    height: 90px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
 }
 
+.ad-container2 iframe {
+    width: 728px;
+    height: 90px;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
 
 .modal-content {
     background-color: #e0e0eb;
