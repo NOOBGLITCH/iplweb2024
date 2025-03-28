@@ -1,6 +1,10 @@
 [
+{
+    "title": "server 1 hindi",
+    "file": "https://m3u8.cloudycx.net/media/hls/files/index.m3u8"
+  },
   {
-    "title": "server 1",
+    "title": "server 2 hindi",
     "file": "https://myctxa.temycssme.wiki/720p.m3u8"
   },
   {
