@@ -1,11 +1,11 @@
 [
   {
     "title": "server 1 hindi",
-    "file": "https://002.fclplayer.online/live/csstream2/playlist.m3u8?id=1002"
+    "file": "https://m3u8.cloudycx.net/media/hls/files/index.m3u8"
   },
   {
     "title": "server 2 hindi",
-    "file": "https://m3u8.cloudycx.net/media/hls/files/index.m3u8"
+    "file": "https://002.fclplayer.online/live/csstream2/playlist.m3u8?id=1002"
   },
   {
     "title": "star sportts english",
