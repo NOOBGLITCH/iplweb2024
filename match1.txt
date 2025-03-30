@@ -5,7 +5,7 @@
   },
   {
     "title": "server 2 hindi",
-    "file": "https://v18tataplaysyndication.akamaized.nehttps://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1743365318~acl=/*~hmac=5fdbef5961fed3b2383ef6fba9159d5f15a6fa92906a94cecdba227ad994685b"
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1743365318~acl=/*~hmac=5fdbef5961fed3b2383ef6fba9159d5f15a6fa92906a94cecdba227ad994685b"
   },
    {
     "title": "server 3 hindi",
