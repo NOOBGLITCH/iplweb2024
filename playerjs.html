@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sports Stream Player</title>
     <script src="playerjs2.js"></script>
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
-    <!-- Adstra popunder script -->
-    <script type='text/javascript' src='//solemnbible.com/4a/e4/b9/4ae4b90a8b502844725ed46691615ffc.js'></script>
+      
+        <!--popunder adstra code-->
+        <script type='text/javascript' src='//solemnbible.com/4a/e4/b9/4ae4b90a8b502844725ed46691615ffc.js'></script>
     <style>
       #player {
         height: 100%;
@@ -21,27 +22,80 @@
       }
 
       html, body {
-        height: 100%;               /* Ensure html and body take up the full screen height */
-        margin: 0;                 /* Remove default body margin */
-        padding: 0;                /* Remove default body padding */
-        overflow: hidden;           /* Prevent scrollbar */
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .ad-blocked-message {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+        z-index: 10000;
       }
     </style>
+      <!--popunder adstra code-->
+      <script type='text/javascript' src='//solemnbible.com/4a/e4/b9/4ae4b90a8b502844725ed46691615ffc.js'></script>
   </head>
   <body>
-        <!-- Adstra popunder script -->
-        <script type='text/javascript' src='//solemnbible.com/4a/e4/b9/4ae4b90a8b502844725ed46691615ffc.js'></script>
-     <!-- Adstra social bar script -->
-     <script type='text/javascript' src='//solemnbible.com/e1/58/8b/e1588b1f63c4a6baa3af1be0e59e2c85.js'></script>
-
+    <!--social bar adstra-->
+      <script type='text/javascript' src='//solemnbible.com/e1/58/8b/e1588b1f63c4a6baa3af1be0e59e2c85.js'></script>
+      
+      <!--popunder adstra code-->
+      <script type='text/javascript' src='//solemnbible.com/4a/e4/b9/4ae4b90a8b502844725ed46691615ffc.js'></script>
     <div id="player"></div>
+
+    <div id="antiAdblockMessage" class="ad-blocked-message" style="display: none;">
+      <h2>Ad Blocker Detected</h2>
+      <p>Please disable your ad blocker to watch the stream.</p>
+      <button onclick="location.reload()">Reload Page</button>
+    </div>
+
+    <div id="fakeAd" style="position: absolute; width: 1px; height: 1px; top: -9999px; left: -9999px;" class="ad-zone banner-ads ads"></div>
+
     <script>
-      var player = new Playerjs({
-        id: "player",
-        file: "match1.txt"
-      });
+      let adBlockDetected = false;
+
+      function detectAdBlockAdvanced() {
+        const fakeAd = document.getElementById('fakeAd');
+        if (!fakeAd || fakeAd.offsetHeight === 0 || fakeAd.offsetWidth === 0 || getComputedStyle(fakeAd).display === 'none') {
+          console.warn('Ad blocker detected (bait element)!');
+          adBlockDetected = true;
+          showAdblockMessage();
+        } else {
+          console.log('Ad blocker not detected (bait element).');
+        }
+      }
+
+      function showAdblockMessage() {
+        document.getElementById('player').style.display = 'none';
+        document.getElementById('antiAdblockMessage').style.display = 'block';
+      }
+
+      function loadPlayer() {
+        if (!adBlockDetected) {
+          var player = new Playerjs({
+            id: "player",
+            file: "match1.txt"
+          });
+        }
+      }
+
+      window.onload = function() {
+        detectAdBlockAdvanced();
+        // Introduce a small delay before loading the player to give the
+        // ad blocker detection a chance to run.
+        setTimeout(loadPlayer, 100);
+      };
     </script>
-    <!-- Adstra social bar script -->
-    <script type='text/javascript' src='//solemnbible.com/e1/58/8b/e1588b1f63c4a6baa3af1be0e59e2c85.js'></script>
+ <!--social bar adstra-->
+ <script type='text/javascript' src='//solemnbible.com/e1/58/8b/e1588b1f63c4a6baa3af1be0e59e2c85.js'></script>
   </body>
 </html>

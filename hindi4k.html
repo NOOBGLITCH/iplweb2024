@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IPL 2025 LIVE</title>
   <meta name="description"
-    content="Watch ICC Championship matches online with high-quality streaming. Enjoy live cricket action on ICC Live Streaming. Stream in multiple languages including Hindi, English, and regional languages." />
+    content="Watch ipl Championship matches online with high-quality streaming. Enjoy live cricket action on ipl Live Streaming. Stream in multiple languages including Hindi, English, and regional languages." />
   <meta name="keywords"
-    content="ICC Live Streaming, Star Sports Hindi, Star Sports 4K, FHD Hindi, ICC matches, cricket live streaming, Hindi cricket, regional languages cricket, ICC online, watch ICC, ICC streaming, cricket online" />
+    content="ipl Live Streaming, Star Sports Hindi, Star Sports 4K, FHD Hindi, ipl matches, cricket live streaming, Hindi cricket, regional languages cricket, ipl online, watch ipl, ipl streaming, cricket online" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
@@ -28,41 +28,10 @@
   <script src="https://cdn.jsdelivr.net/npm/disable-devtool"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
+  <script src="playerjs2.js"></script>
   <style>
     body {
       text-align: center;
-    }
-
-    #wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 20px auto;
-    }
-
-    .jwplayer {
-      height: 300px !important;
-    }
-
-    iframe {
-      width: 95%;
-      height: 500px;
-      border: none;
-      overflow: hidden;
-    }
-
-    .responsive-gif {
-      display: block;
-      width: 100%;
-    }
-
-    .responsive-gif img {
-      display: block;
-      width: 100%;
-      height: 250px;
-      max-height: 300px;
-      border-radius: 50px;
-      object-fit: cover;
     }
   </style>
 </head>
@@ -72,6 +41,7 @@
   <script
     type="text/javascript">window.$crisp = []; window.CRISP_WEBSITE_ID = "b9273d3d-d002-4a94-bce7-a6310ff2b104"; (function () { d = document; s = d.createElement("script"); s.src = "https://client.crisp.chat/l.js"; s.async = 1; d.getElementsByTagName("head")[0].appendChild(s); })();</script>
   <!-- crisp live cahat starts end-->
+
   <nav>
     <ul>
       <li><a href="index.html">Home</a></li>
@@ -82,11 +52,15 @@
   <a href="https://lnk.bio/NEWBIENOOB" class="responsive-gif">
     <img src="https://i.ibb.co/rGyL1012/output-Oybmvw.gif" alt="Animated GIF" />
   </a>
+
+  </div>
+
   <h1>ipl 2025 live</h1>
-  <h2>dc vs lsg</h2>
+  <h2>match 1</h2>
+  <h2>rr vs csk</h2>
   <br />
-  <!-- adstra code starts-->
-  <div class="ad-container">
+   <!-- adstra code starts-->
+   <div class="ad-container">
     <script type="text/javascript">
       atOptions = {
         'key': '00f3553fa4e63b67faa24fe8096c6fcc',
@@ -101,105 +75,27 @@
   <!-- adstra code ends-->
   <h3>only for mobile</h3>
 
-  <!--     <h3>player 1</h3>
-    <br>
-<iframe src="https://mafiatv.live/watch.php?stream=STARSPORTS1" width="500" height="400" allowfullscreen></iframe> -->
-  <br>
-  <br>
   <h3>player 1</h3>
+  <h2>📌note: please cheack all servers and players multiple servers addedd</h2>
   <br>
-  <div id="player"></div>
-  <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
+  <iframe src="playerjs.html" title="Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+  <!-- <div id="player"></div>
+
   <script>
-    const playerInstance = jwplayer("player").setup({
-      controls: true,
-      displaytitle: true,
-      autoplay: false,
-      displaydescription: true,
-      abouttext: "",
-      aboutlink: "https://telegram.me/NEWBIEN00B", // Updated Telegram channel link
-      skin: {
-        name: "netflix",
-      },
-      logo: {
-        file: "",
-        link: "https://telegram.me/NEWBIEN00B", // Updated Telegram channel link
-      },
-      captions: {
-        color: "#FFF",
-        fontSize: 14,
-        backgroundOpacity: 0,
-        edgeStyle: "raised",
-      },
-      playlist: [
-        {
-          image: "",
-          sources: [
-            {
-              file: "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1742761356~acl=/*~hmac=47e826f728d5ef22eabe585c2c2c96fe83aa253c4654cb7723e7fdb27810552b",
-              label: "1080p",
-              default: true,
-            },
-          ],
-        },
-      ],
-      advertising: {
-        client: "vast",
-        schedule: [
-          {
-            offset: "pre",
-            tag: "",
-          },
-        ],
-      },
+    var player = new Playerjs({
+      id: "player",
+      file: "match1.txt",
+      poster: "https://i.ibb.co/1G4N2fgF/welocome-to-our-website.png" 
     });
-
-    playerInstance.on("ready", function () {
-      const playerContainer = playerInstance.getContainer();
-      const buttonContainer = playerContainer.querySelector(
-        ".jw-button-container"
-      );
-
-      // Rewind button functionality
-      const rewindContainer = playerContainer.querySelector(
-        ".jw-display-icon-rewind"
-      );
-      const rewindButton = rewindContainer.cloneNode(true);
-      const rewindIcon = rewindButton.querySelector(".jw-icon-rewind");
-      rewindIcon.style.transform = "scaleX(1)";
-      rewindIcon.ariaLabel = "Rewind 10 Seconds";
-
-      const nextContainer = playerContainer.querySelector(
-        ".jw-display-icon-next"
-      );
-      nextContainer.parentNode.insertBefore(rewindButton, nextContainer);
-
-      // Rewind functionality for the control bar
-      const rewindControlBarButton =
-        buttonContainer.querySelector(".jw-icon-rewind");
-      const rewindControlBarClone = rewindControlBarButton.cloneNode(true);
-      rewindControlBarClone.style.transform = "scaleX(1)";
-      rewindControlBarClone.ariaLabel = "Rewind 10 Seconds";
-      buttonContainer.insertBefore(
-        rewindControlBarClone,
-        buttonContainer.firstChild
-      );
-
-      // On click of rewind button, seek backward by 10 seconds
-      [rewindButton, rewindControlBarClone].forEach((button) => {
-        button.onclick = () => {
-          const currentPosition = playerInstance.getPosition();
-          const newPosition = Math.max(currentPosition - 10, 0); // Prevent going below 0
-          playerInstance.seek(newPosition);
-        };
-      });
-    });
-  </script>
+  </script> -->
   <br>
-  <a href="https://lnk.bio/NEWBIENOOB" class="responsive">
-    <img src="https://i.ibb.co/q3rNH8dY/1.png" alt="Animated Image" />
-  </a>
-
+  <br>
+  <h3>Player 2</h3>
+<br>
+</iframe>
+  <iframe src="jwplayer.html" width="100%" height="100%" frameborder="0" allowfullscreen="">
+  </iframe>
+  <br>
   <br>
   <!-- adstra code starts-->
   <div class="ad-container2">
@@ -214,9 +110,21 @@
     </script>
     <script type="text/javascript" src="//solemnbible.com/c7f084c8714ec976c64b3e9313ff23ac/invoke.js"></script>
   </div>
-  <!-- adstra code ends-->
+    <!-- adstra code ends-->
   <br>
-  <h3>Player 2</h3>
+  </div>
+<br>
+  <h2>📌note: please cheack all servers and players multiple servers addedd</h2>
+  <br>
+  <h3>player 3</h3>
+  <br>
+  <iframe src="https://ifram.embedxt.site/iframe/frame.php" title="Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+  </iframe>
+  <br>
+  <h2>📌note: please cheack all servers and players multiple servers addedd</h2>
+  <br>
+  <h3>Player 4</h3>
+  <br>
   <div id="wrapper">
     <div id="pcPlayer"></div>
   </div>
@@ -234,7 +142,7 @@
 
     jwScriptHindi.onload = function () {
       var playerInstanceHindi = jwplayer("pcPlayer").setup({
-        file: "https://vkvsd55.okcdn.ru/cmaf/7966929783340/sig/2BHdHF06_38/expires/1742822010379/srcIp/172.69.87.177/urls/185.226.52.84/clientType/13/srcAg/CHROME/mid/9319446489900/get/hls_9319446489900.OnURj29hmec.m3u8",
+        file: "https://live.tsports.com/mobile_hls/tsports_live_2/playlist.m3u8",
         width: "100%",
         aspectratio: "16:9",
         preload: "metadata",
@@ -287,24 +195,94 @@
     };
     document.head.appendChild(jwScriptHindi);
   </script>
+  <br>
 
-  <script type="text/javascript">
-    jwplayer("jwplayerDiv").setup({
-      file: "https://vvvv-two.vercel.app/1033.m3u8",
-      type: "hls",
-      autostart: true,
-      width: "100%"
-    });
+  <br>
+  <!-- <h2>WPL Server</h2> -->
+  <div id="wrapper">
+    <div id="pcPlayer"></div>
+  </div>
+  <script>
+    var jwScriptHindi = document.createElement("script");
+    jwScriptHindi.src = "https://content.jwplatform.com/libraries/KB5zFt7A.js";
+    jwScriptHindi.async = true;
 
-    window.addEventListener("load", function () {
-      if (window.confirm("Join @thecricsters for more updates?")) {
-        window.location.href = "https://t.me/+uBrjQXMdNqxkOWVl";
-      }
-    });
+    jwScriptHindi.onerror = function () {
+      console.error("Failed to load JW Player library (Hindi).");
+      document.getElementById("pcPlayer").innerHTML = "<p>Error loading video player (Hindi).</p>";
+    };
+
+    jwScriptHindi.onload = function () {
+      var playerInstanceHindi = jwplayer("pcPlayer").setup({
+        file: "https://live.tsports.com/mobile_hls/tsports_live_2/playlist.m3u8",
+        width: "100%",
+        aspectratio: "16:9",
+        preload: "metadata",
+        autostart: false,
+        fallback: {
+          message: "Your browser does not support the video format or the player."
+        },
+        events: {
+          error: function (e) {
+            console.error("JW Player error (Hindi):", e);
+            alert("A JW Player error occurred (Hindi): " + e.message);
+          }
+        },
+        pip: true,
+        controls: true,
+        title: "tsports",
+        quality: {
+          defaultAuto: true
+        }
+      });
+
+      playerInstanceHindi.on("controls", function (event) {
+        console.log("Controls event (Hindi):", event);
+      });
+
+      playerInstanceHindi.on("displayClick", function (event) {
+        console.log("displayClick event (Hindi):", event);
+      });
+
+      playerInstanceHindi.on("ready", function (event) {
+        console.log("Player ready (Hindi)", event);
+      });
+
+      playerInstanceHindi.on("visualQuality", function (event) {
+        console.log("Visual quality changed (Hindi)", event);
+      });
+
+      playerInstanceHindi.on("bufferChange", function (event) {
+        console.log("Buffer change (Hindi)", event);
+      });
+
+      playerInstanceHindi.on("metaData", function (event) {
+        console.log("Meta data (Hindi)", event);
+      });
+
+      playerInstanceHindi.on("fullScreen", function (event) {
+        console.log("Full screen event (Hindi)", event);
+      });
+    };
+    document.head.appendChild(jwScriptHindi);
   </script>
 
   <br />
   <br />
+  <h2>📌note: please cheack all servers and players multiple servers addedd</h2>
+  <h3>player 5</h3>
+  <br>
+    <iframe src="willowsports.html" width="100%" height="100%" frameborder="0" allowfullscreen="">
+    </iframe>
+    <br>
+    <br>
+    <h2>📌note: please cheack all servers and players multiple servers addedd</h2>
+  <h3>player 5</h3>
+  <br>
+  <iframe src="playercopy.html" title="Video Player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="">
+  </iframe>
+    <br>
+    <br>
   <h2>
     Developed by <a href="https://github.com/NEWBIENOOB-0">NEWBIENOOB-0</a>
   </h2>
