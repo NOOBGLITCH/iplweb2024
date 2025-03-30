@@ -6,18 +6,11 @@
     <title>Sports Stream Player</title>
     <script src="playerjs2.js"></script>
     <meta http-equiv="Access-Control-Allow-Origin" content="*">
-      
-        <!--popunder adstra code-->
-        <script type='text/javascript' src='//solemnbible.com/4a/e4/b9/4ae4b90a8b502844725ed46691615ffc.js'></script>
+  
     <style>
       #player {
         height: 100%;
         width: 100%;
-        margin: 0;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 9999;
       }
 
       html, body {
@@ -26,22 +19,7 @@
         padding: 0;
         overflow: hidden;
       }
-
-      .ad-blocked-message {
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: rgba(0, 0, 0, 0.8);
-        color: white;
-        padding: 20px;
-        border-radius: 5px;
-        text-align: center;
-        z-index: 10000;
-      }
     </style>
-      <!--popunder adstra code-->
-      <script type='text/javascript' src='//solemnbible.com/4a/e4/b9/4ae4b90a8b502844725ed46691615ffc.js'></script>
   </head>
   <body>
     <div id="player"></div>
@@ -55,41 +33,11 @@
     <div id="fakeAd" style="position: absolute; width: 1px; height: 1px; top: -9999px; left: -9999px;" class="ad-zone banner-ads ads"></div>
 
     <script>
-      let adBlockDetected = false;
-
-      function detectAdBlockAdvanced() {
-        const fakeAd = document.getElementById('fakeAd');
-        if (!fakeAd || fakeAd.offsetHeight === 0 || fakeAd.offsetWidth === 0 || getComputedStyle(fakeAd).display === 'none') {
-          console.warn('Ad blocker detected (bait element)!');
-          adBlockDetected = true;
-          showAdblockMessage();
-        } else {
-          console.log('Ad blocker not detected (bait element).');
-        }
-      }
-
-      function showAdblockMessage() {
-        document.getElementById('player').style.display = 'none';
-        document.getElementById('antiAdblockMessage').style.display = 'block';
-      }
-
-      function loadPlayer() {
-        if (!adBlockDetected) {
-          var player = new Playerjs({
-            id: "player",
-            file: "match1.txt"
-          });
-        }
-      }
-
-      window.onload = function() {
-        detectAdBlockAdvanced();
-        // Introduce a small delay before loading the player to give the
-        // ad blocker detection a chance to run.
-        setTimeout(loadPlayer, 100);
-      };
+    var player = new Playerjs({
+      id: "player",
+      file: "match1.txt",
+      poster: "https://i.ibb.co/1G4N2fgF/welocome-to-our-website.png" 
+    }); 
     </script>
- <!--social bar adstra-->
- <script type='text/javascript' src='//solemnbible.com/e1/58/8b/e1588b1f63c4a6baa3af1be0e59e2c85.js'></script>
   </body>
 </html>
