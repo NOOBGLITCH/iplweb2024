@@ -1,21 +1,13 @@
 [
+  
   {
-    "title": "server 1 hindi",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/hdntl=exp=1743413642~acl=%2f*~data=hdntl~hmac=16a324ef2e914d312f0775986c507f5c44a6fd3bae0f40660f53c72d79e6e643/Sports18_1_HD_voot_MOB-audio_108038_eng=108000-video=3728000.m3u8"
+    "title": "server 1 english",
+    "file": "https://9361edfe-185f-40b2-8656-2f450faeef7c.deepnoteproject.com/api/star1in.m3u8"
   },
   {
     "title": "server 2 hindi",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1743365318~acl=/*~hmac=5fdbef5961fed3b2383ef6fba9159d5f15a6fa92906a94cecdba227ad994685b"
+    "file": "https://002.fclplayer.online/live/csstream2/playlist.m3u8?id=1002"
   },
-   {
-    "title": "server 3 hindi",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1743350918~acl=/*~hmac=8a6f9d4323e433bb17cf7ef3faf5abd68a557330b210761ec48d42016ad61ba5"
-  },
-  {
-    "title": "server 4 hindi",
-    "file": "https://m3u8.cloudycx.net/media/hls/files/index.m3u8"
-  },
- 
   {
     "title": "star sportts english",
     "file": "https://ssh101stream.ssh101.com/akamaissh101/ssh101/cskvsrcbeng/playlist.m3u8"
@@ -25,23 +17,23 @@
     "file": "https://live.tsports.com/mobile_hls/tsports_live_2/playlist.m3u8"
   },
   {
-    "title": "server 3 fox eng",
-    "file": "https://1a-1791.com/live/u7gf26qm/slot-85/mc3z-24k4/chunklist_DVR.m3u8"
+    "title": "server sky sports",
+    "file": "https://1a-1791.com/live/u7gf26qm/slot-115/bq9s-6gas/chunklist_DVR.m3u8"
   },
   {
-    "title": "1080p hindi",
-    "file": "https://vkvsd197.okcdn.ru/hls/8180811827754.m3u8/sig/s5sAOtJY--c/expires/1743144679796/srcIp/176.227.240.55/urls/185.226.52.100/clientType/14/srcAg/CHROME_ANDROID/mid/9681002900266/8180811827754_high/index.m3u8"
+    "title": "1080p",
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1742749026~acl=/*~hmac=4d47ad393702da7b1085850817406714215f121aa44d0c21c45f29e05249cbb3_1080"
   },
   {
-    "title": "720p hindi",
-    "file": "https://vkvsd197.okcdn.ru/hls/8180811827754.m3u8/sig/s5sAOtJY--c/expires/1743144679796/srcIp/176.227.240.55/urls/185.226.52.100/clientType/14/srcAg/CHROME_ANDROID/mid/9681002900266/8180811827754_medium/index.m3u8"
+    "title": "720p",
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1742749026~acl=/*~hmac=4d47ad393702da7b1085850817406714215f121aa44d0c21c45f29e05249cbb3_720"
   },
   {
-    "title": "480p hindi",
-    "file": "https://vkvsd197.okcdn.ru/hls/8180811827754.m3u8/sig/s5sAOtJY--c/expires/1743144679796/srcIp/176.227.240.55/urls/185.226.52.100/clientType/14/srcAg/CHROME_ANDROID/mid/9681002900266/8180811827754_low/index.m3u8"
+    "title": "480p",
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1742749026~acl=/*~hmac=4d47ad393702da7b1085850817406714215f121aa44d0c21c45f29e05249cbb3_480"
   },
   {
-    "title": "240p hindi",
-    "file": "https://vkvsd197.okcdn.ru/hls/8180811827754.m3u8/sig/s5sAOtJY--c/expires/1743144679796/srcIp/176.227.240.55/urls/185.226.52.100/clientType/14/srcAg/CHROME_ANDROID/mid/9681002900266/8180811827754_lowest/index.m3u8"
+    "title": "360p",
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1742749026~acl=/*~hmac=4d47ad393702da7b1085850817406714215f121aa44d0c21c45f29e05249cbb3_360"
   }
 ]
