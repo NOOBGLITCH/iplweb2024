@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="playerjs2.js" type="text/javascript"></script>
+    <style>
+      #player {
+        height: 100%;
+        width: 100%;
+        border: 2px solid red;
+        margin: 0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="player"></div>
+
+    <script>
+      var player = new Playerjs({
+        id: "player",
+        file: [
+          {
+            title: "HD Streams",
+            folder: [
+              {
+                title: "Sports18 HD",
+                file: "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1742761356~acl=/*~hmac=47e826f728d5ef22eabe585c2c2c96fe83aa253c4654cb7723e7fdb27810552b"
+              },
+              {
+                title: "Star Sports 1 Hindi (1080p)",
+                file: "https://vkvsd212.okcdn.ru:443/hls/8304644786830.m3u8/sig/-yS-n-TI3kI/expires/1742797386146/srcIp/92.62.121.164/urls/185.226.55.73/clientType/14/srcAg/CHROME_ANDROID/mid/10216378018702/8304644786830/8304644786830_high/index.m3u8"
+              }
+            ]
+          },
+          {
+            title: "Standard Streams",
+            folder: [
+              {
+                title: "720p Stream",
+                file: "https://vkvsd212.okcdn.ru:443/hls/8304644786830.m3u8/sig/-yS-n-TI3kI/expires/1742797386146/srcIp/92.62.121.164/urls/185.226.55.73/clientType/14/srcAg/CHROME_ANDROID/mid/10216378018702/8304644786830/8304644786830_medium/index.m3u8"
+              },
+              {
+                title: "480p Stream",
+                file: "https://vkvsd212.okcdn.ru:443/hls/8304644786830.m3u8/sig/-yS-n-TI3kI/expires/1742797386146/srcIp/92.62.121.164/urls/185.226.55.73/clientType/14/srcAg/CHROME_ANDROID/mid/10216378018702/8304644786830/8304644786830_low/index.m3u8"
+              },
+              {
+                title: "360p Stream",
+                file: "https://vkvsd212.okcdn.ru:443/hls/8304644786830.m3u8/sig/-yS-n-TI3kI/expires/1742797386146/srcIp/92.62.121.164/urls/185.226.55.73/clientType/14/srcAg/CHROME_ANDROID/mid/10216378018702/8304644786830/8304644786830_lowest/index.m3u8"
+              }
+            ]
+          }
+        ]
+      });
+    </script>
+  </body>
+</html>
