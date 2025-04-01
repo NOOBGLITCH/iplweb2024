@@ -31,6 +31,24 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="playerjs2.js"></script>
   <style>
+    .responsive-link {
+  display: block;
+  max-width: 100%;
+  text-align: center; /* Center the inline(-block) content within the link */
+}
+
+.responsive-link img {
+  display: block; /* Remove extra space */
+  width: 100%;
+  height: auto;
+  margin: 0 auto; /* Center the block-level image horizontally */
+}
+
+@media (min-width: 768px) {
+  .responsive-link img {
+    max-width: 450px;
+  }
+}
     body {
       text-align: center;
     }
@@ -61,8 +79,8 @@
 <a href="https://lnk.bio/NEWBIENOOB" class="responsive-gif">
   <img loading="lazy" src="https://i.ibb.co/rGyL1012/output-Oybmvw.gif" alt="Animated GIF"/>
 </a>
-<a href="https://ublockorigin.com/">
-  <img loading="lazy" src="https://i.ibb.co/bjNG66z1/2.png" alt="Sample Image" width="auto%" height="180" />
+<a href="https://ublockorigin.com/" class="responsive-link">
+  <img loading="lazy" src="https://i.ibb.co/bjNG66z1/2.png" alt="Sample Image" width="350px" height="180" />
 </a>
   <h1>ipl 2025 live</h1>
   <h2>match 1</h2>
