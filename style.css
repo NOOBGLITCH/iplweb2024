@@ -1,3 +1,4 @@
+/* Reset and Box Sizing */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,19 +6,95 @@
     font-family: 'Roboto', sans-serif;
 }
 
+/* Flexbox for Alignment */
+.flex-center {
+    display: flex;
+    align-items: center;
+}
+.whatsapp-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #25d366; /* WhatsApp's brand color */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Remove default link styling */
+}
+
+.whatsapp-button:hover {
+    background-color: #128c7e; /* Slightly darker shade on hover */
+}
+
+.whatsapp-button i {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 1.2em; /* Adjust icon size as needed */
+}
+.telegram-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: #0088cc; /* Telegram's brand color */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none; /* Remove default link styling */
+}
+
+.telegram-button:hover {
+    background-color: #0077b3; /* Slightly darker shade on hover */
+}
+
+.telegram-button i {
+    margin-right: 8px; /* Space between icon and text */
+    font-size: 1.2em; /* Adjust icon size as needed */
+}
+/* Responsive Image Link Styles */
+.responsive-link {
+    display: block;
+    max-width: 100%;
+    text-align: center;
+}
+
+.responsive-link img {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+    .responsive-link img {
+        max-width: 450px;
+    }
+}
+
+/* General Content Styling */
 body {
     background-color: #31363F;
     color: #F0EDCF;
     text-align: center;
-    text-transform: uppercase;
+    text-transform: capitalize;
+}
+
+h1,
+h2,
+a {
+    color: #40A2D8;
 }
 
 iframe {
     width: 100%;
     height: 500px;
-    border: 4px solid red; /* Changed to solid for visibility */
+    border: 4px solid red;
     overflow: hidden;
-  }
+}
 
 .responsive-gif {
     display: block;
@@ -38,19 +115,13 @@ iframe {
     width: 100%;
 }
 
-h1,
-h2,
-a {
-    color: #40A2D8;
-}
+
 
 .responsive {
     display: block;
     width: 100%;
     max-height: 400px;
-    /* Set a maximum height if needed */
     overflow: hidden;
-    /* Ensure any overflow is hidden */
     border-radius: 10px;
 }
 
@@ -58,13 +129,11 @@ a {
     display: block;
     width: 100%;
     height: 180px;
-    /* Ensure the height adjusts based on the container */
     object-fit: contain;
-    /* Fit the image in the container maintaining the aspect ratio */
     border-radius: 40px;
-    /* Rounded corners */
 }
 
+/* Input Box Styles */
 .inputBox_container {
     display: flex;
     justify-content: center;
@@ -98,6 +167,7 @@ a {
     color: #abb2bf;
 }
 
+/* Navigation Styles */
 nav {
     position: relative;
     background-color: #333333;
@@ -123,6 +193,7 @@ nav ul li a:hover {
     background-color: #555555;
 }
 
+/* Card Styles */
 .card {
     width: 300px;
     height: 400px;
@@ -179,6 +250,7 @@ nav ul li a:hover {
     }
 }
 
+/* Fixed Button and Modal Styles */
 #followUsBtn {
     padding: 10px 20px;
     font-size: 16px;
@@ -191,7 +263,7 @@ nav ul li a:hover {
     bottom: 20px;
     right: 20px;
     pointer-events: auto;
-}
+        }
 
 .modal {
     display: none;
@@ -207,43 +279,7 @@ nav ul li a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.ad-container {
-    margin: 10px auto;
-    max-width: 300px;
-    height: 250px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-}
-
-.ad-container iframe {
-    width: 300px;
-    height: 250px;
-    border: none;
-    margin: 0;
-    padding: 0;
-}
-.ad-container2 {
-    margin: 10px auto;
-    max-width: 728px;
-    height: 90px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-}
-
-.ad-container2 iframe {
-    width: 728px;
-    height: 90px;
-    border: none;
-    margin: 0;
-    padding: 0;
-}
+        }
 
 .modal-content {
     background-color: #e0e0eb;
@@ -253,17 +289,16 @@ nav ul li a:hover {
     width: 90%;
     max-width: 600px;
     text-align: center;
-}
+        }
 
 .modal-content h2 {
     margin-bottom: 20px;
-}
+        }
 
 .modal-content p {
     margin-bottom: 20px;
     color: blue;
-    /* Added to make all paragraphs within the modal blue */
-}
+        }
 
 .close-button {
     color: blue;
@@ -272,21 +307,22 @@ nav ul li a:hover {
     font-weight: bold;
     text-decoration: none;
     cursor: pointer;
-}
+        }
 
 .close-button:hover,
 .close-button:focus {
     color: darkblue;
-}
+        }
 
 body.modal-open {
     pointer-events: none;
-}
+        }
 
 body.modal-open #followUsModal {
     pointer-events: auto;
-}
+        }
 
 body.modal-open #followUsBtn {
     pointer-events: auto;
-}
+        }
+
