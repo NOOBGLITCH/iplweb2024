@@ -1,64 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="theme-color" content="black">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>DTV HINDI LIVE STREAM HD Hindi</title>
-
-  <!-- Open Graph Meta -->
-  <meta property="og:image" content="https://encrypted-tbn0static.com/images?q=tbn:ANd9GcQq-VwWgAPYQ70k1R60meu_P-lN85uhvxb1Hg&usqp=CAU">
-  <meta property="og:title" content="LIVE Streaming by @dtv_hindi | PERMANENT LIVE">
-  <meta property="og:description" content="Official World Cup website - live matches, scores, news, highlights, commentary, rankings, videos and fixtures from the International Cricket Council.">
-  <meta property="og:url" content="https://tvxd.digitaltrend.in/streaming.html">
-
-  <!-- Ads -->
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8003681892226291" crossorigin="anonymous"></script>
-  
-  <!-- JS Libraries -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
-  <!-- Custom CSS -->
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      background-color: black;
-    }
-
-    .player {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
-
-    .player iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>noobgltch</title>
+    <link rel="stylesheet" href="https://cxh.pages.dev/style.css">
 </head>
-
 <body>
+    <style>
+        #player {
+            position: absolute;
+            width: 100% !important;
+            height: 100% !important;
+        }
+    </style>
 
-  <div class="player">
-    <iframe src="https://vimeo.com/event/5009603/embed"
-      allow="autoplay; fullscreen; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  </div>
+    <div id="player"></div>
 
+    <script src='https://content.jwplatform.com/libraries/KB5zFt7A.js'></script>
+
+    <script>
+        var jwScript = document.createElement('script');
+        jwScript.src = "https://content.jwplatform.com/libraries/KB5zFt7A.js";
+        jwScript.async = true;
+        jwScript.onerror = function() {
+            console.error("Failed to load JW Player library.");
+            document.getElementById("player").innerHTML = "<p>Error loading video player.</p>";
+        };
+        document.head.appendChild(jwScript);
+
+        jwScript.onload = function() {
+            var playerInstance = jwplayer("player").setup({
+                file: "https://9361edfe-185f-40b2-8656-2f450faeef7c.deepnoteproject.com/api/starhindi.m3u8",
+                width: "100%",
+                height: "100%",
+                aspectratio: '16:9',
+                preload: 'metadata',
+                autostart: false,
+                fallback: {
+                    message: "Your browser does not support the video format or the player."
+                },
+                events: {
+                    error: function(e) {
+                        console.error("JW Player error:", e);
+                        alert("A JW Player error occurred: " + e.message);
+                    }
+                },
+                pip: true,
+                controls: true,
+                title: "star sports 1 hndi" // You might want to update the title too
+            });
+
+            playerInstance.on('controls', function(event) {
+                console.log("Controls event:", event);
+            });
+
+            playerInstance.on('displayClick', function(event) {
+                console.log("displayClick event:", event);
+            });
+
+            playerInstance.on('ready', function(event){
+                console.log("player ready", event);
+            })
+
+            playerInstance.on('visualQuality', function(event){
+                console.log("visual quality changed", event);
+            })
+
+            playerInstance.on('bufferChange', function(event){
+                console.log('buffer change', event);
+            })
+
+            playerInstance.on('metaData', function(event){
+                console.log('meta data', event);
+            })
+
+            playerInstance.on('fullScreen', function(event){
+                console.log('full screen event', event);
+            })
+        };
+    </script>
 </body>
 </html>
