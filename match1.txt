@@ -1,15 +1,15 @@
 [
   {
+    "title": "server 1 hindi",
+    "file": "https://002.fclplayer.online/live/csstream2/playlist.m3u8?id=1002"
+  },
+  {
     "title": "willow 2 hindi",
     "file": "https://iplislive.pages.dev/w.m3u8"
   },
   {
     "title": "willow 2 hindi 2nd server",
     "file": "https://1a-1791.com/live/d5a20b4d/slot-1/hoyd-gwhq/chunklist_DVR.m3u8"
-  },
-  {
-    "title": "server 3 hindi",
-    "file": "https://002.fclplayer.online/live/csstream2/playlist.m3u8?id=1002"
   },
   {
     "title": "server 2 english",
