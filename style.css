@@ -11,50 +11,63 @@
     display: flex;
     align-items: center;
 }
+
 .whatsapp-button {
     display: inline-flex;
     align-items: center;
     padding: 8px 16px;
     border: none;
     border-radius: 8px;
-    background-color: #25d366; /* WhatsApp's brand color */
+    background-color: #25d366;
+    /* WhatsApp's brand color */
     color: white;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    text-decoration: none; /* Remove default link styling */
+    text-decoration: none;
+    /* Remove default link styling */
 }
 
 .whatsapp-button:hover {
-    background-color: #128c7e; /* Slightly darker shade on hover */
+    background-color: #128c7e;
+    /* Slightly darker shade on hover */
 }
 
 .whatsapp-button i {
-    margin-right: 8px; /* Space between icon and text */
-    font-size: 1.2em; /* Adjust icon size as needed */
+    margin-right: 8px;
+    /* Space between icon and text */
+    font-size: 1.2em;
+    /* Adjust icon size as needed */
 }
+
 .telegram-button {
     display: inline-flex;
     align-items: center;
     padding: 8px 16px;
     border: none;
     border-radius: 8px;
-    background-color: #0088cc; /* Telegram's brand color */
+    background-color: #0088cc;
+    /* Telegram's brand color */
     color: white;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    text-decoration: none; /* Remove default link styling */
+    text-decoration: none;
+    /* Remove default link styling */
 }
 
 .telegram-button:hover {
-    background-color: #0077b3; /* Slightly darker shade on hover */
+    background-color: #0077b3;
+    /* Slightly darker shade on hover */
 }
 
 .telegram-button i {
-    margin-right: 8px; /* Space between icon and text */
-    font-size: 1.2em; /* Adjust icon size as needed */
+    margin-right: 8px;
+    /* Space between icon and text */
+    font-size: 1.2em;
+    /* Adjust icon size as needed */
 }
+
 /* Responsive Image Link Styles */
 .responsive-link {
     display: block;
@@ -263,7 +276,7 @@ nav ul li a:hover {
     bottom: 20px;
     right: 20px;
     pointer-events: auto;
-        }
+}
 
 .modal {
     display: none;
@@ -279,7 +292,7 @@ nav ul li a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-        }
+}
 
 .modal-content {
     background-color: #e0e0eb;
@@ -289,16 +302,16 @@ nav ul li a:hover {
     width: 90%;
     max-width: 600px;
     text-align: center;
-        }
+}
 
 .modal-content h2 {
     margin-bottom: 20px;
-        }
+}
 
 .modal-content p {
     margin-bottom: 20px;
     color: blue;
-        }
+}
 
 .close-button {
     color: blue;
@@ -307,22 +320,21 @@ nav ul li a:hover {
     font-weight: bold;
     text-decoration: none;
     cursor: pointer;
-        }
+}
 
 .close-button:hover,
 .close-button:focus {
     color: darkblue;
-        }
+}
 
 body.modal-open {
     pointer-events: none;
-        }
+}
 
 body.modal-open #followUsModal {
     pointer-events: auto;
-        }
+}
 
 body.modal-open #followUsBtn {
     pointer-events: auto;
-        }
-
+}
