@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream Player</title>
+    <style>
+        html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: sans-serif; }
+        #player { position: absolute; width: 100% !important; height: 100% !important; }
+    </style>
+</head>
+<body>
+
+    <div id="player"></div>
+
+    <script src='https://content.jwplatform.com/libraries/KB5zFt7A.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script>
+        const playerContainerId = 'player';
+        const apiUrl = 'https://maxplay-tv.fun/cric.php?id=starhindi';
+        const directM3u8Url = 'https://off1.dunyapurkaraja.com:1686/hls/starhindi.m3u8?md5=p99AG0dgfFFJ0UE9xqsSpw&expires=1743685958';
+        const useApi = true; // Set to false to use direct URL
+        const streamTitle = "star sports 1 hindi crichd";
+        const refreshInterval = 30000; // Refresh stream URL every 60 seconds (adjust as needed)
+        let playerInstance = null; // To hold the JWPlayer instance
+
+        function setupPlayer(m3u8Url) {
+            if (typeof jwplayer === 'undefined') {
+                console.error("JWPlayer library not loaded.");
+                alert("Error: Video player library failed to load.");
+                return;
+            }
+
+            playerInstance = jwplayer(playerContainerId).setup({
+                file: m3u8Url,
+                width: "100%",
+                aspectratio: "16:9",
+                autostart: true, // Start playing after refresh
+                primary: "html5",
+                hlsjs: Hls,
+                preload: "auto",
+                stretching: "uniform",
+                pip: true,
+                controls: true,
+                title: streamTitle
+            }).on('error', event => {
+                console.error('Player error:', event.message);
+                // Do NOT alert on every error during auto-refresh
+                console.warn('Stream error occurred. Auto-refresh will attempt to recover.');
+            });
+        }
+
+        async function fetchM3u8UrlAndRefresh() {
+            let currentUrl = useApi ? apiUrl : directM3u8Url;
+            console.log('Fetching stream URL:', currentUrl);
+
+            try {
+                let m3u8UrlToLoad = directM3u8Url; // Default to direct URL
+
+                if (useApi) {
+                    const response = await fetch(apiUrl);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const data = await response.text();
+                    const fetchedM3u8Url = data.trim();
+                    console.log('Fetched stream URL:', fetchedM3u8Url);
+                    if (fetchedM3u8Url) {
+                        m3u8UrlToLoad = fetchedM3u8Url;
+                    } else {
+                        console.warn('API returned empty URL. Using direct URL.');
+                    }
+                }
+
+                if (playerInstance) {
+                    console.log('Attempting to load new stream URL:', m3u8UrlToLoad);
+                    playerInstance.load({ file: m3u8UrlToLoad });
+                } else {
+                    console.log('Player instance not yet ready, initial setup with URL:', m3u8UrlToLoad);
+                    setupPlayer(m3u8UrlToLoad);
+                }
+
+            } catch (error) {
+                console.error('Error fetching stream URL:', error);
+                console.log('Attempting to reload with direct URL.');
+                if (playerInstance) {
+                    playerInstance.load({ file: directM3u8Url });
+                } else {
+                    setupPlayer(directM3u8Url);
+                }
+            }
+
+            // Schedule the next refresh
+            setTimeout(fetchM3u8UrlAndRefresh, refreshInterval);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initial fetch and setup (without immediate refresh interval)
+            fetchM3u8UrlAndRefresh();
+        });
+    </script>
+
+</body>
+</html>
