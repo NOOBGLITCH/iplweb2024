@@ -2,83 +2,55 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>noobgltch</title>
-    <link rel="stylesheet" href="https://cxh.pages.dev/style.css">
-</head>
-<body>
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css">
+    <link href="https://cdn.jsdelivr.net/gh/halfmoonui/halfmoon@1.0.4/css/halfmoon.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://cdn.plyr.io/3.6.2/plyr.polyfilled.js"></script>
+
     <style>
-        #player {
+        body {
+            background: #121212;
+            color: #fff;
+            font-family: "Arial", sans-serif;
+        }
+        .plyr__video-wrapper::before {
             position: absolute;
-            width: 100% !important;
-            height: 100% !important;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            z-index: 10;
         }
     </style>
+</head>
+<body class="dark-mode with-custom-scrollbars with-custom-css-scrollbars">
 
-    <div id="player"></div>
-
-    <script src='https://content.jwplatform.com/libraries/KB5zFt7A.js'></script>
+    <video id="player" controls preload="metadata" class="plyr">
+        <source src="https://maxplay-tv.fun/foot.php" type="application/x-mpegURL">
+    </video>
 
     <script>
-        var jwScript = document.createElement('script');
-        jwScript.src = "https://content.jwplatform.com/libraries/KB5zFt7A.js";
-        jwScript.async = true;
-        jwScript.onerror = function() {
-            console.error("Failed to load JW Player library.");
-            document.getElementById("player").innerHTML = "<p>Error loading video player.</p>";
-        };
-        document.head.appendChild(jwScript);
+        document.addEventListener("DOMContentLoaded", () => {
+            const videoElement = document.querySelector("video");
+            const videoSource = videoElement.getElementsByTagName("source")[0].src;
 
-        jwScript.onload = function() {
-            var playerInstance = jwplayer("player").setup({
-                file: "https://9361edfe-185f-40b2-8656-2f450faeef7c.deepnoteproject.com/api/star1in.m3u8",
-                width: "100%",
-                height: "100%",
-                aspectratio: '16:9',
-                preload: 'metadata',
-                autostart: false,
-                fallback: {
-                    message: "Your browser does not support the video format or the player."
-                },
-                events: {
-                    error: function(e) {
-                        console.error("JW Player error:", e);
-                        alert("A JW Player error occurred: " + e.message);
-                    }
-                },
-                pip: true,
-                controls: true,
-                title: "star sports 1 eng" // You might want to update the title too
-            });
+            if (Hls.isSupported()) {
+                const hls = new Hls({ maxMaxBufferLength: 100 });
+                hls.loadSource(videoSource);
+                hls.attachMedia(videoElement);
+                const player = new Plyr(videoElement);
 
-            playerInstance.on('controls', function(event) {
-                console.log("Controls event:", event);
-            });
+                hls.on(Hls.Events.ERROR, function (event, data) {
+                    console.error("HLS Error:", data);
+                    // Optionally handle specific HLS errors here
+                });
 
-            playerInstance.on('displayClick', function(event) {
-                console.log("displayClick event:", event);
-            });
-
-            playerInstance.on('ready', function(event){
-                console.log("player ready", event);
-            })
-
-            playerInstance.on('visualQuality', function(event){
-                console.log("visual quality changed", event);
-            })
-
-            playerInstance.on('bufferChange', function(event){
-                console.log('buffer change', event);
-            })
-
-            playerInstance.on('metaData', function(event){
-                console.log('meta data', event);
-            })
-
-            playerInstance.on('fullScreen', function(event){
-                console.log('full screen event', event);
-            })
-        };
+            } else {
+                const player = new Plyr(videoElement);
+            }
+        });
     </script>
 </body>
 </html>
