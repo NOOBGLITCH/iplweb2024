@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stream Player</title>
     <style>
-        html, body { margin: 0; padding: 0; height: 100%; overflow: hidden; font-family: sans-serif; }
-        #player { position: absolute; width: 100% !important; height: 100% !important; }
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: sans-serif;
+        }
+
+        #player {
+            position: absolute;
+            width: 100% !important;
+            height: 100% !important;
+        }
     </style>
 </head>
+
 <body>
 
     <div id="player"></div>
@@ -19,8 +33,10 @@
         const playerContainerId = 'player';
         const apiUrl = 'https://maxplay-tv.fun/cric.php?id=starhindi';
         const directM3u8Url = 'https://off1.dunyapurkaraja.com:1686/hls/starhindi.m3u8?md5=p99AG0dgfFFJ0UE9xqsSpw&expires=1743685958';
-        const useApi = false; // Force using the direct URL for this test
-        const streamTitle = "star sports 1 hindi";
+        const useApi = true; // Set to false to use direct URL
+        const streamTitle = "star sports 1 hindi crichd";
+        const refreshInterval = 30000; // Refresh stream URL every 60 seconds (adjust as needed)
+        let playerInstance = null; // To hold the JWPlayer instance
 
         function setupPlayer(m3u8Url) {
             if (typeof jwplayer === 'undefined') {
@@ -29,11 +45,11 @@
                 return;
             }
 
-            window.playerInstance = jwplayer(playerContainerId).setup({
+            playerInstance = jwplayer(playerContainerId).setup({
                 file: m3u8Url,
                 width: "100%",
                 aspectratio: "16:9",
-                autostart: true,
+                autostart: true, // Start playing after refresh
                 primary: "html5",
                 hlsjs: Hls,
                 preload: "auto",
@@ -42,45 +58,62 @@
                 controls: true,
                 title: streamTitle
             }).on('error', event => {
-                console.error('JWPlayer Error:', event.message, event);
-                alert(`Error loading the stream: ${event.message} (Error Code: ${event.code || 'N/A'})`);
+                console.error('Player error:', event.message);
+                // Do NOT alert on every error during auto-refresh
+                console.warn('Stream error occurred. Auto-refresh will attempt to recover.');
             });
-
-            console.log('JWPlayer setup initiated with URL:', m3u8Url);
         }
 
-        async function fetchM3u8Url() {
-            if (!useApi) {
-                console.log('Attempting to play direct stream URL:', directM3u8Url);
-                setupPlayer(directM3u8Url);
-                return;
-            }
+        async function fetchM3u8UrlAndRefresh() {
+            let currentUrl = useApi ? apiUrl : directM3u8Url;
+            console.log('Fetching stream URL:', currentUrl);
 
-            console.log('Fetching stream URL from API:', apiUrl);
             try {
-                const response = await fetch(apiUrl);
-                if (!response.ok) {
-                    console.error('API Response Error:', response.status, response.statusText);
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                let m3u8UrlToLoad = directM3u8Url; // Default to direct URL
+
+                if (useApi) {
+                    const response = await fetch(apiUrl);
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    const data = await response.text();
+                    const fetchedM3u8Url = data.trim();
+                    console.log('Fetched stream URL:', fetchedM3u8Url);
+                    if (fetchedM3u8Url) {
+                        m3u8UrlToLoad = fetchedM3u8Url;
+                    } else {
+                        console.warn('API returned empty URL. Using direct URL.');
+                    }
                 }
-                const data = await response.text();
-                const fetchedM3u8Url = data.trim();
-                console.log('Fetched stream URL from API:', fetchedM3u8Url);
-                if (fetchedM3u8Url) {
-                    setupPlayer(fetchedM3u8Url);
+
+                if (playerInstance) {
+                    console.log('Attempting to load new stream URL:', m3u8UrlToLoad);
+                    playerInstance.load({ file: m3u8UrlToLoad });
                 } else {
-                    console.warn('API returned empty URL. Using direct URL as fallback.');
+                    console.log('Player instance not yet ready, initial setup with URL:', m3u8UrlToLoad);
+                    setupPlayer(m3u8UrlToLoad);
+                }
+
+            } catch (error) {
+                console.error('Error fetching stream URL:', error);
+                console.log('Attempting to reload with direct URL.');
+                if (playerInstance) {
+                    playerInstance.load({ file: directM3u8Url });
+                } else {
                     setupPlayer(directM3u8Url);
                 }
-            } catch (error) {
-                console.error('Error fetching from API:', error);
-                console.log('Using direct stream URL as fallback.');
-                setupPlayer(directM3u8Url);
             }
+
+            // Schedule the next refresh
+            setTimeout(fetchM3u8UrlAndRefresh, refreshInterval);
         }
 
-        document.addEventListener('DOMContentLoaded', fetchM3u8Url);
+        document.addEventListener('DOMContentLoaded', () => {
+            // Initial fetch and setup (without immediate refresh interval)
+            fetchM3u8UrlAndRefresh();
+        });
     </script>
 
 </body>
+
 </html>
