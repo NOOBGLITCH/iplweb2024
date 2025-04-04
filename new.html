@@ -27,7 +27,7 @@
 </head>
 <body class="dark-mode with-custom-scrollbars with-custom-css-scrollbars">
 
-    <video id="player" controls preload="metadata" class="plyr">
+    <video id="player" controls preload="metadata" class="plyr" allowfullscreen>
         <source src="https://maxplay-tv.fun/foot.php" type="application/x-mpegURL">
     </video>
 
@@ -47,8 +47,34 @@
                     // Optionally handle specific HLS errors here
                 });
 
+                // Enable full-screen for Android
+                player.on('enterfullscreen', () => {
+                    if (window.screen.orientation && window.screen.orientation.lock) {
+                        window.screen.orientation.lock('landscape').catch(console.error);
+                    }
+                });
+
+                player.on('exitfullscreen', () => {
+                    if (window.screen.orientation && window.screen.orientation.unlock) {
+                        window.screen.orientation.unlock();
+                    }
+                });
+
             } else {
                 const player = new Plyr(videoElement);
+
+                // Enable full-screen for Android
+                player.on('enterfullscreen', () => {
+                    if (window.screen.orientation && window.screen.orientation.lock) {
+                        window.screen.orientation.lock('landscape').catch(console.error);
+                    }
+                });
+
+                player.on('exitfullscreen', () => {
+                    if (window.screen.orientation && window.screen.orientation.unlock) {
+                        window.screen.orientation.unlock();
+                    }
+                });
             }
         });
     </script>

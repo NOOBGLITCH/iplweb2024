@@ -1,5 +1,17 @@
 [
   {
+    "title": "HINDI",
+    "file": "https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_HIN_IDC_MOB/Fallback/index.m3u8"
+  },
+  {
+    "title": "ENGLISH",
+    "file": "https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_ENG_IDC_MOB/Fallback/index.m3u8"
+  },
+  {
+    "title": "MARATHI",
+    "file": "https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_MAR_IDC_MOB/Fallback/index.m3u8"
+  },
+  {
     "title": "server 1 hindi",
     "file": "https://vkvsd250.okcdn.ru/cmaf/8177201777196/sig/j6X5gf0MwQc/srcIp/172.69.95.67/urls/45.136.22.65/expires/1743885970114/clientType/13/srcAg/CHROME/fromCache/1/mid/9469206211372/id/8177201777196/get/hls_9469206211372.VaRDHyXezr0.m3u8"
   },
@@ -22,21 +34,5 @@
   {
     "title": "server sky sports",
     "file": "https://1a-1791.com/live/u7gf26qm/slot-115/bq9s-6gas/chunklist_DVR.m3u8"
-  },
-  {
-    "title": "1080p",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1742749026~acl=/*~hmac=4d47ad393702da7b1085850817406714215f121aa44d0c21c45f29e05249cbb3_1080"
-  },
-  {
-    "title": "720p",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1742749026~acl=/*~hmac=4d47ad393702da7b1085850817406714215f121aa44d0c21c45f29e05249cbb3_720"
-  },
-  {
-    "title": "480p",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1742749026~acl=/*~hmac=4d47ad393702da7b1085850817406714215f121aa44d0c21c45f29e05249cbb3_480"
-  },
-  {
-    "title": "360p",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1742749026~acl=/*~hmac=4d47ad393702da7b1085850817406714215f121aa44d0c21c45f29e05249cbb3_360"
   }
 ]
