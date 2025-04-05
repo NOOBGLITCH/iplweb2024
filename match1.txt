@@ -1,11 +1,11 @@
 [
   {
     "title": "HINDI",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1743863214~acl=/*~hmac=3355d2520c1e9982635a8f9e5b868e9ac87cbe7a6f1acaa22b95454a85406196"
+    "file": "https://ee4ee8c03a26.eu-central-1.playback.live-video.net/api/video/v1/eu-central-1.755921704393.channel.LOohfipmCQDP.m3u8"
   },
   {
-    "title": "ENGLISH",
-    "file": "https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_ENG_IDC_MOB/Fallback/index.m3u8"
+    "title": "hindi server 2",
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1743877615~acl=/*~hmac=6bc2c32ef46fa668a55c84248e573c23e0862283dae659d5fd2189aaae7ac218"
   },
   {
     "title": "MARATHI",
