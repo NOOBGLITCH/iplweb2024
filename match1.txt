@@ -5,11 +5,11 @@
   },
   {
     "title": "hindi server 2",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1743877615~acl=/*~hmac=6bc2c32ef46fa668a55c84248e573c23e0862283dae659d5fd2189aaae7ac218"
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/hdntl=exp=1743948563~acl=%2f*~data=hdntl~hmac=c19733fba19fab8594b120fdf102829479a2515a7144f3588a2deb453942245d/Sports18_1_HD_voot_MOB-audio_42842_eng=42800-video=151600.m3u8"
   },
   {
-    "title": "MARATHI",
-    "file": "https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_MAR_IDC_MOB/Fallback/index.m3u8"
+    "title": "hindi server 3",
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1743877615~acl=/*~hmac=6bc2c32ef46fa668a55c84248e573c23e0862283dae659d5fd2189aaae7ac218"
   },
   {
     "title": "server 1 hindi",
