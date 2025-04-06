@@ -12,10 +12,6 @@
     "file": "https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_MAR_IDC_MOB/Fallback/index.m3u8"
   },
   {
-    "title": "server 3 hindi",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/hdntl=exp=1744032516~acl=%2f*~data=hdntl~hmac=96f02643124fddfd4ece1b6491a96e5e0bcf245c18786269ff3323da6baeb903/Sports18_1_HD_voot_MOB-audio_108038_eng=108000-video=662800.m3u8"
-  },
-  {
     "title": "willow 2 hindi 2nd server",
     "file": "https://1a-1791.com/live/d5a20b4d/slot-1/hoyd-gwhq/chunklist_DVR.m3u8"
   },
