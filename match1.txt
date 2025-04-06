@@ -5,7 +5,7 @@
   },
   {
     "title": "hindi server 2",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/hdntl=exp=1744040497~acl=%2f*~data=hdntl~hmac=32af3b67b81810ecf3b7d35468ea1cba8e4d402f8d52ba449569c4926ee50acb/Sports18_1_HD_voot_MOB-audio_108038_eng=108000-video=1275600.m3u8"
+    "file": "https://ee4ee8c03a26.eu-central-1.playback.live-video.net/api/video/v1/eu-central-1.755921704393.channel.LOohfipmCQDP.m3u8"
   },
   {
     "title": "hindi server 3",
