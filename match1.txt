@@ -1,11 +1,11 @@
 [
   {
     "title": "HINDI",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1743952677~acl=/*~hmac=446dc4d40a3def3fa808c43ab86b77eee00d0c0c5ddc49bf02a46ea7e4352c09"
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1743967078~acl=/*~hmac=f82c1362060db918fd48ce5eef5b9adc7a50302a97ba0d666a2f969d9625a2e2"
   },
   {
     "title": "hindi server 2",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/hdntl=exp=1744032516~acl=%2f*~data=hdntl~hmac=96f02643124fddfd4ece1b6491a96e5e0bcf245c18786269ff3323da6baeb903/Sports18_1_HD_voot_MOB-audio_108038_eng=108000-video=662800.m3u8"
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/hdntl=exp=1744040497~acl=%2f*~data=hdntl~hmac=32af3b67b81810ecf3b7d35468ea1cba8e4d402f8d52ba449569c4926ee50acb/Sports18_1_HD_voot_MOB-audio_108038_eng=108000-video=1275600.m3u8"
   },
   {
     "title": "hindi server 3",
