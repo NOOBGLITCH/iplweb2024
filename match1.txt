@@ -1,27 +1,19 @@
 [
   {
     "title": "HINDI",
-    "file": "https://ee4ee8c03a26.eu-central-1.playback.live-video.net/api/video/v1/eu-central-1.755921704393.channel.LOohfipmCQDP.m3u8"
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1743952677~acl=/*~hmac=446dc4d40a3def3fa808c43ab86b77eee00d0c0c5ddc49bf02a46ea7e4352c09"
   },
   {
     "title": "hindi server 2",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1743877615~acl=/*~hmac=6bc2c32ef46fa668a55c84248e573c23e0862283dae659d5fd2189aaae7ac218"
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/hdntl=exp=1744032516~acl=%2f*~data=hdntl~hmac=96f02643124fddfd4ece1b6491a96e5e0bcf245c18786269ff3323da6baeb903/Sports18_1_HD_voot_MOB-audio_108038_eng=108000-video=662800.m3u8"
   },
   {
-    "title": "MARATHI",
+    "title": "hindi server 3",
     "file": "https://prod-ent-live-gm.jiocinema.com/bpk-tv/JS_M1_IPL25_MAR_IDC_MOB/Fallback/index.m3u8"
   },
   {
-    "title": "server 1 hindi",
-    "file": "https://vkvsd250.okcdn.ru/cmaf/8177201777196/sig/j6X5gf0MwQc/srcIp/172.69.95.67/urls/45.136.22.65/expires/1743885970114/clientType/13/srcAg/CHROME/fromCache/1/mid/9469206211372/id/8177201777196/get/hls_9469206211372.VaRDHyXezr0.m3u8"
-  },
-  {
-    "title": "sever 2 hindi",
-    "file": "https://ee4ee8c03a26.eu-central-1.playback.live-video.net/api/video/v1/eu-central-1.755921704393.channel.LOohfipmCQDP.m3u8"
-  },
-  {
     "title": "server 3 hindi",
-    "file": "https://002.fclplayer.online/live/csstream2/playlist.m3u8?id=1002"
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/hdntl=exp=1744032516~acl=%2f*~data=hdntl~hmac=96f02643124fddfd4ece1b6491a96e5e0bcf245c18786269ff3323da6baeb903/Sports18_1_HD_voot_MOB-audio_108038_eng=108000-video=662800.m3u8"
   },
   {
     "title": "willow 2 hindi 2nd server",
