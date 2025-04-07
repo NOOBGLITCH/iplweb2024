@@ -1,76 +1,84 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>server 2</title>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;600&display=swap" rel="stylesheet">
-    <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
-
+    <title>noobgltch</title>
+    <link rel="stylesheet" href="https://cxh.pages.dev/style.css">
+</head>
+<body>
     <style>
-        body {
-            background-color: black;
-            margin: 0;
-            overflow: hidden;
-            height: 100vh;
-            width: 100vw;
-            font-family: 'Lato', sans-serif;
-        }
-
-        #video {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 90vh;
-            object-fit: contain;
-        }
-
-        .stream-info {
-            position: fixed;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-            color: white;
-            font-size: 18px;
-            font-family: "Lato", sans-serif;
-            font-weight: 600;
-        }
-
-        .error-message {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: red;
-            font-size: 20px;
-            font-weight: bold;
-            text-align: center;
-            z-index: 1001;
+        #player {
+            position: absolute;
+            width: 100% !important;
+            height: 100% !important;
         }
     </style>
-</head>
 
-<body>
-    <!-- JW Player -->
-    <div id="video"></div>
+    <div id="player"></div>
 
-
-    <!-- Error Message -->
-    <div id="error-message" class="error-message" style="display: none;"></div>
+    <script src='https://content.jwplatform.com/libraries/KB5zFt7A.js'></script>
 
     <script>
-        // Video URL
-        const videoUrl = "https://002.fclplayer.online/live/csstream2/playlist.m3u8?id=1002";
+        var jwScript = document.createElement('script');
+        jwScript.src = "https://content.jwplatform.com/libraries/KB5zFt7A.js";
+        jwScript.async = true;
+        jwScript.onerror = function() {
+            console.error("Failed to load JW Player library.");
+            document.getElementById("player").innerHTML = "<p>Error loading video player.</p>";
+        };
+        document.head.appendChild(jwScript);
 
-        // JW Player setup
-        jwplayer("video").setup({
-            width: "100%",
-            height: "100%",
-            autostart: true,
-            mute: false,
-            file: videoUrl
-        });
+        jwScript.onload = function() {
+            var playerInstance = jwplayer("player").setup({
+                file: "https://002.fclplayer.online/live/csstream2/playlist.m3u8?id=1002",
+                width: "100%",
+                height: "100%",
+                aspectratio: '16:9',
+                preload: 'metadata',
+                autostart: false,
+                fallback: {
+                    message: "Your browser does not support the video format or the player."
+                },
+                events: {
+                    error: function(e) {
+                        console.error("JW Player error:", e);
+                        alert("A JW Player error occurred: " + e.message);
+                    }
+                },
+                pip: true,
+                controls: true,
+                title: "star sports 1 hndi" // You might want to update the title too
+            });
+
+            playerInstance.on('controls', function(event) {
+                console.log("Controls event:", event);
+            });
+
+            playerInstance.on('displayClick', function(event) {
+                console.log("displayClick event:", event);
+            });
+
+            playerInstance.on('ready', function(event){
+                console.log("player ready", event);
+            })
+
+            playerInstance.on('visualQuality', function(event){
+                console.log("visual quality changed", event);
+            })
+
+            playerInstance.on('bufferChange', function(event){
+                console.log('buffer change', event);
+            })
+
+            playerInstance.on('metaData', function(event){
+                console.log('meta data', event);
+            })
+
+            playerInstance.on('fullScreen', function(event){
+                console.log('full screen event', event);
+            })
+        };
     </script>
 </body>
 </html>
