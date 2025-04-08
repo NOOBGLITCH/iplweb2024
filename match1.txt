@@ -4,8 +4,8 @@
     "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1744126211~acl=/*~hmac=142e07996288143fef75383bcce7011b078ce0022aee457d90461996bcbc3db7"
   },
   {
-    "title": "jiohotstar",
-    "file": "https://ee4ee8c03a26.eu-central-1.playback.live-video.net/api/video/v1/eu-central-1.755921704393.channel.LOohfipmCQDP.m3u8"
+    "title": "star sports 2 hindi",
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/hdntl=exp=1744189572~acl=%2f*~data=hdntl~hmac=41d37107b13e678fd9acff1fb9556bf33c09e31369a5756d6d00e6decd3c5d32/Sports18_1_HD_voot_MOB-audio_108038_eng=108000-video=662800.m3u8"
   },
   {
     "title": "english",
