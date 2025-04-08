@@ -1,11 +1,15 @@
 [
   {
+    "title": "star sports 2 hindi",
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1744126211~acl=/*~hmac=142e07996288143fef75383bcce7011b078ce0022aee457d90461996bcbc3db7"
+  },
+  {
     "title": "jiohotstar",
     "file": "https://ee4ee8c03a26.eu-central-1.playback.live-video.net/api/video/v1/eu-central-1.755921704393.channel.LOohfipmCQDP.m3u8"
   },
   {
     "title": "english",
-    "file": "https://live-test.tsports.com/live-02/index.m3u8?hdnts=URLPrefix=aHR0cHM6Ly9saXZlLXRlc3QudHNwb3J0cy5jb20v~Expires=17436002443600~hmac=1fdfe8ddcbf56e3eefcb254f9facdca9e6fce112f92dcf335b77a9a930116421"
+    "file": "https://criccoder264.pages.dev/sse.m3u8"
   },
   {
     "title": "hindi server 2",
