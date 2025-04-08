@@ -1,7 +1,7 @@
 [
   {
     "title": "star sports 2 hindi",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1744126211~acl=/*~hmac=142e07996288143fef75383bcce7011b078ce0022aee457d90461996bcbc3db7"
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1744140625~acl=/*~hmac=967be85f91d4e6e3450cdfb37dbd6348f309c560b732ef075b8c2b2fccd9481e"
   },
   {
     "title": "star sports 2 hindi",
