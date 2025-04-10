@@ -1,34 +1,22 @@
 [
   {
-    "title": "iothostar hindi",
+    "title": "jiothostar hindi",
     "file": "https://prod-sports-hin-fa.jiocinema.com/hls/live/2117033/inallow-ipl-2025/hin/1540040246/15mindvrm0153748b1625e24a9ebc935a7faca3fe7810april2025/master.m3u8"
   },
   {
-    "title": "jiothostar marathi",
-    "file": ""
+    "title": "willow 2 hindi adfree",
+    "file": "https://1a-1791.com/live/3fms19g4/slot-31/qb9o-jtff/chunklist_DVR.m3u8"
   },
   {
-    "title": "english",
-    "file": "https://criccoder264.pages.dev/sse.m3u8"
+    "title": "jiothostar hindi 1080p",
+    "file": "https://prod-sports-hin-fa.jiocinema.com/hls/live/2117033/inallow-ipl-2025/hin/1540040246/15mindvrm0153748b1625e24a9ebc935a7faca3fe7810april2025/master_ap_1080_6.m3u8"
   },
   {
-    "title": "hindi server 2",
-    "file": "https://002.fclplayer.online/live/csstream2/playlist.m3u8?id=1002"
+    "title": "jiothostar hindi 720p",
+    "file": "https://prod-sports-hin-fa.jiocinema.com/hls/live/2117033/inallow-ipl-2025/hin/1540040246/15mindvrm0153748b1625e24a9ebc935a7faca3fe7810april2025/master_apm_720_5.m3u8"
   },
   {
-    "title": "hindi server 3",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1744126211~acl=/*~hmac=142e07996288143fef75383bcce7011b078ce0022aee457d90461996bcbc3db7"
-  },
-  {
-    "title": "willow 2 hindi 2nd server",
-    "file": "https://1a-1791.com/live/d5a20b4d/slot-1/hoyd-gwhq/chunklist_DVR.m3u8"
-  },
-  {
-    "title": "server 2 english",
-    "file": "https://live.tsports.com/mobile_hls/tsports_live_2/playlist.m3u8"
-  },
-  {
-    "title": "server sky sports",
-    "file": "https://1a-1791.com/live/u7gf26qm/slot-115/bq9s-6gas/chunklist_DVR.m3u8"
+    "title": "jiothostar hindi 480p",
+    "file": "https://prod-sports-hin-fa.jiocinema.com/hls/live/2117033/inallow-ipl-2025/hin/1540040246/15mindvrm0153748b1625e24a9ebc935a7faca3fe7810april2025/master_apmf_480_4.m3u8"
   }
 ]
