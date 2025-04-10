@@ -1,11 +1,11 @@
 [
   {
-    "title": "star sports 2 hindi",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1744126211~acl=/*~hmac=142e07996288143fef75383bcce7011b078ce0022aee457d90461996bcbc3db7"
+    "title": "jiohostar hindi",
+    "file": "https://prod-sports-hin-fa.jiocinema.com/hls/live/2117033/inallow-ipl-2025/hin/1540040246/15mindvrm0153748b1625e24a9ebc935a7faca3fe7810april2025/master.m3u8"
   },
   {
-    "title": "star sports 2 hindi",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/hdntl=exp=1744189572~acl=%2f*~data=hdntl~hmac=41d37107b13e678fd9acff1fb9556bf33c09e31369a5756d6d00e6decd3c5d32/Sports18_1_HD_voot_MOB-audio_108038_eng=108000-video=662800.m3u8"
+    "title": "jiothostar marathi",
+    "file": "https://prod-sports-hin-fa.jiocinema.com/hls/live/2117033/inallow-ipl-2025/mar/1540040246/15mindvrm0153748b1625e24a9ebc935a7faca3fe7810april2025/master.m3u8"
   },
   {
     "title": "english",
