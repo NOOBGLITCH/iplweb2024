@@ -1,7 +1,7 @@
 [
   {
-    "title": "jiohostar hindi",
-    "file": "https://prod-sports-hin-fa.jiocinema.com/hls/live/2117033/inallow-ipl-2025/hin/1540040246/15mindvrm0153748b1625e24a9ebc935a7faca3fe7810april2025/master.m3u8"
+    "title": "star sports 2 hindi",
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1744126211~acl=/*~hmac=142e07996288143fef75383bcce7011b078ce0022aee457d90461996bcbc3db7"
   },
   {
     "title": "jiothostar marathi",
@@ -17,7 +17,7 @@
   },
   {
     "title": "hindi server 3",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1743952677~acl=/*~hmac=446dc4d40a3def3fa808c43ab86b77eee00d0c0c5ddc49bf02a46ea7e4352c09"
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/Sports18_1_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1744126211~acl=/*~hmac=142e07996288143fef75383bcce7011b078ce0022aee457d90461996bcbc3db7"
   },
   {
     "title": "willow 2 hindi 2nd server",
