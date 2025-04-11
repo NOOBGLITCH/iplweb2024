@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css">
+    <link href="https://cdn.jsdelivr.net/gh/halfmoonui/halfmoon@1.0.4/css/halfmoon.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: #121212;
+            color: #fff;
+            font-family: "Arial", sans-serif;
+        }
+        .plyr__video-wrapper::before {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="dark-mode with-custom-scrollbars with-custom-css-scrollbars">
+
+    <video id="player" controls preload="metadata" class="plyr" allowfullscreen playsinline>
+        <source src="https://maxplay-tv.fun/cric.php?id=starhindi" type="application/x-mpegURL">
+    </video>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="https://cdn.plyr.io/3.6.2/plyr.polyfilled.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const playerElement = document.querySelector("#player");
+            const videoSource = playerElement.querySelector("source").src;
+            const player = new Plyr(playerElement, {
+                controls: [
+                    'play-large', // The large play button in the center
+                    'play', // Play/pause toggle
+                    'progress', // Progress bar and scrubber
+                    'current-time', // The current time of playback
+                    'duration', // The full duration of the media
+                    'mute', // Volume control
+                    'volume', // Volume slider
+                    'captions', // Toggle captions
+                    'pip', // Picture-in-picture (PiP) button
+                    'fullscreen' // Fullscreen toggle
+                ],
+            });
+            const isHlsSupported = Hls.isSupported();
+
+            const handleFullscreen = (isFullscreen) => {
+                if (window.screen.orientation?.lock) {
+                    window.screen.orientation.lock(isFullscreen ? 'landscape' : 'portrait').catch(console.error);
+                }
+            };
+
+            player.on('enterfullscreen', () => handleFullscreen(true));
+            player.on('exitfullscreen', () => handleFullscreen(false));
+
+            if (isHlsSupported) {
+                const hls = new Hls({ maxMaxBufferLength: 100 });
+                hls.loadSource(videoSource);
+                hls.attachMedia(playerElement);
+                hls.on(Hls.Events.ERROR, (event, data) => console.error("HLS Error:", data));
+            }
+        });
+    </script>
+</body>
+</html>

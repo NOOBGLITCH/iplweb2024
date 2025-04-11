@@ -24,8 +24,8 @@
 </head>
 <body class="dark-mode with-custom-scrollbars with-custom-css-scrollbars">
 
-    <video id="player" controls preload="metadata" class="plyr" allowfullscreen>
-        <source src="https://maxplay-tv.fun/cric.php?id=starhindi" type="application/x-mpegURL">
+    <video id="player" controls preload="metadata" class="plyr" allowfullscreen playsinline>
+        <source src="https://maxplay-tv.fun/cric.php?id=star1in" type="application/x-mpegURL">
     </video>
 
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
@@ -34,7 +34,20 @@
         document.addEventListener("DOMContentLoaded", () => {
             const playerElement = document.querySelector("#player");
             const videoSource = playerElement.querySelector("source").src;
-            const player = new Plyr(playerElement);
+            const player = new Plyr(playerElement, {
+                controls: [
+                    'play-large', // The large play button in the center
+                    'play', // Play/pause toggle
+                    'progress', // Progress bar and scrubber
+                    'current-time', // The current time of playback
+                    'duration', // The full duration of the media
+                    'mute', // Volume control
+                    'volume', // Volume slider
+                    'captions', // Toggle captions
+                    'pip', // Picture-in-picture (PiP) button
+                    'fullscreen' // Fullscreen toggle
+                ],
+            });
             const isHlsSupported = Hls.isSupported();
 
             const handleFullscreen = (isFullscreen) => {
