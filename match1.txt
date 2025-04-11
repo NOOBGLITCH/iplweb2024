@@ -4,10 +4,6 @@
     "file": "https://prod-sports-hin-fa.jiocinema.com/hls/live/2117033/inallow-ipl-2025/hin/1540040249/15mindvrm0196aee80e6b0944cfb66338cda8d9b49011april2025/master.m3u8"
   },
   {
-    "title": "willow 2 hindi adfree",
-    "file": "https://1a-1791.com/live/3fms19g4/slot-31/qb9o-jtff/chunklist_DVR.m3u8"
-  },
-  {
     "title": "jiothostar hindi 1080p",
     "file": "https://prod-sports-hin-fa.jiocinema.com/hls/live/2117033/inallow-ipl-2025/hin/1540040249/15mindvrm0196aee80e6b0944cfb66338cda8d9b49011april2025/master_ap_1080_6.m3u8"
   },
