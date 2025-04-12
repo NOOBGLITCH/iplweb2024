@@ -1,7 +1,7 @@
 [
   {
     "title": "jiothostar hindi",
-    "file": "https://prod-sports-hin-fa.jiocinema.com/hls/live/2117033/inallow-ipl-2025/hin/1540040249/15mindvrm0196aee80e6b0944cfb66338cda8d9b49011april2025/master.m3u8"
+    "file": "https://iplislive.pages.dev/w.m3u8"
   },
   {
     "title": "jiothostar hindi 1080p",
