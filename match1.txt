@@ -1,7 +1,15 @@
 [
   {
-    "title": "jiothostar hindi",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/StarSports_2_Hin_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1744546500~acl=/*~hmac=1359ccf3c8bb35aef3470db24fd9923da85aceb17de1c05de58496efd5ac71ad"
+    "title": "star sports 2 hindi",
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/StarSports_2_Hin_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1744548296~acl=/*~hmac=925506a09adb89e11beec878dc2a6e34951410a90bd40a049adf00f2acc2fec7"
+  },
+  {
+    "title": "jiohostar official",
+    "file": "https://ee4ee8c03a26.eu-central-1.playback.live-video.net/api/video/v1/eu-central-1.755921704393.channel.LOohfipmCQDP.m3u8"
+  },
+  {
+    "title": "tsports English",
+    "file": "https://live-test.tsports.com/live-02/index.m3u8?hdnts=URLPrefix=aHR0cHM6Ly9saXZlLXRlc3QudHNwb3J0cy5jb20v~Expires=17443778803600~hmac=35d8f03492cf91d3b1098b718e8a30d9362590d6cc0072f8e52c4e0fc0962f26"
   },
   {
     "title": "server 2 smooth hindi",
@@ -18,13 +26,5 @@
   {
     "title": "jiothostar hindi 480p",
     "file": "https://prod-sports-hin-fa.jiocinema.com/hls/live/2117033/inallow-ipl-2025/hin/1540040249/15mindvrm0196aee80e6b0944cfb66338cda8d9b49011april2025/master_apmf_480_4.m3u8"
-  },
-  {
-    "title": "jiohostar official",
-    "file": "https://ee4ee8c03a26.eu-central-1.playback.live-video.net/api/video/v1/eu-central-1.755921704393.channel.LOohfipmCQDP.m3u8"
-  },
-  {
-    "title": "tsports English",
-    "file": "https://live-test.tsports.com/live-02/index.m3u8?hdnts=URLPrefix=aHR0cHM6Ly9saXZlLXRlc3QudHNwb3J0cy5jb20v~Expires=17443778803600~hmac=35d8f03492cf91d3b1098b718e8a30d9362590d6cc0072f8e52c4e0fc0962f26"
   }
 ]
