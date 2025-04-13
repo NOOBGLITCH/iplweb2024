@@ -1,7 +1,7 @@
 [
   {
     "title": "star sports 2 hindi",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/StarSports_2_Hin_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1744548296~acl=/*~hmac=925506a09adb89e11beec878dc2a6e34951410a90bd40a049adf00f2acc2fec7"
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/StarSports_2_Hin_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1744552596~acl=/*~hmac=6cbc04c798b2b45534b023cf724e8f4a828bdd05b075238ecbaf5b1f97255c2c"
   },
   {
     "title": "jiohostar official",
