@@ -1,11 +1,11 @@
 [
   {
-    "title": "star sports 2 hindi",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/StarSports_2_Hin_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1744552596~acl=/*~hmac=6cbc04c798b2b45534b023cf724e8f4a828bdd05b075238ecbaf5b1f97255c2c"
+    "title": "jiohostar offical",
+    "file": "https://ee4ee8c03a26.eu-central-1.playback.live-video.net/api/video/v1/eu-central-1.755921704393.channel.LOohfipmCQDP.m3u8"
   },
   {
-    "title": "jiohostar official",
-    "file": "https://ee4ee8c03a26.eu-central-1.playback.live-video.net/api/video/v1/eu-central-1.755921704393.channel.LOohfipmCQDP.m3u8"
+    "title": "star sports 2 hindi",
+    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/StarSports_2_Hin_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1744565406~acl=/*~hmac=e8a70bb1ba3e5c5864c22244494a6f64be69020d7b523bf75e93d3a542e8b963"
   },
   {
     "title": "tsports English",
