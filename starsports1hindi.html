@@ -2,48 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, maximum-scale=1.0, user-scalable=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <link rel="stylesheet" href="https://cdn.plyr.io/3.6.2/plyr.css">
     <link href="https://cdn.jsdelivr.net/gh/halfmoonui/halfmoon@1.0.4/css/halfmoon.min.css" rel="stylesheet">
     <style>
         body {
-            background: #000;
+            background: #121212;
             color: #fff;
             font-family: "Arial", sans-serif;
-            margin: 0;
-            overflow: hidden;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
         .plyr__video-wrapper::before {
-            content: "Loading Stream...";
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             color: #fff;
-            z-index: 2;
-            font-size: 1.5em;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        }
-        .plyr--playing .plyr__video-wrapper::before {
-            content: "";
-        }
-        .plyr {
-            width: 100vw;
-            height: 100vh;
-            max-width: none !important;
-            max-height: none !important;
-        }
-        #player {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            z-index: 10;
         }
     </style>
 </head>
@@ -59,15 +34,17 @@
         document.addEventListener("DOMContentLoaded", () => {
             const playerElement = document.querySelector("#player");
             const videoSource = playerElement.querySelector("source").src;
-            let hls;
-
             const player = new Plyr(playerElement, {
                 controls: [
-                    'play-large', 'play', 'mute', 'volume', 'captions', 'pip', 'fullscreen'
+                    'play-large', // The large play button in the center
+                    'play', // Play/pause toggle
+                    'mute', // Volume control
+                    'volume', // Volume slider
+                    'captions', // Toggle captions
+                    'pip', // Picture-in-picture (PiP) button
+                    'fullscreen' // Fullscreen toggle
                 ],
-                autoplay: false, // Autoplay is now set to false
             });
-
             const isHlsSupported = Hls.isSupported();
 
             const handleFullscreen = (isFullscreen) => {
@@ -80,28 +57,10 @@
             player.on('exitfullscreen', () => handleFullscreen(false));
 
             if (isHlsSupported) {
-                hls = new Hls({
-                    maxMaxBufferLength: 100,
-                });
+                const hls = new Hls({ maxMaxBufferLength: 100 });
                 hls.loadSource(videoSource);
                 hls.attachMedia(playerElement);
-                hls.on(Hls.Events.ERROR, (event, data) => {
-                    console.error("HLS Error:", event, data);
-                });
-            } else {
-                console.warn("HLS is not supported in this browser.");
-            }
-
-            if (hls && isHlsSupported) {
-                hls.on(Hls.Events.NETWORK_ERROR, (event, data) => {
-                    console.error("HLS Network Error:", event, data);
-                    console.log("Attempting to recover HLS stream...");
-                    hls.recoverMediaError();
-                });
-                hls.on(Hls.Events.BUFFER_STALLED, () => {
-                    console.log("HLS Buffer Stalled, trying to recover...");
-                    hls.recoverMediaError();
-                });
+                hls.on(Hls.Events.ERROR, (event, data) => console.error("HLS Error:", data));
             }
         });
     </script>
