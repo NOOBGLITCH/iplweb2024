@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Live Sports - Custom Shaka Player</title>
+  <title>Live Sports - Shaka Fixed</title>
   <meta name="referrer" content="no-referrer">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -11,177 +11,118 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shaka-player@4.13.3/dist/controls.min.css">
 
   <style>
-    html, body {
-      margin: 0; padding: 0;
-      width: 100%; height: 100%;
-      background: #000;
-      overflow: hidden;
-      font-family: Arial, sans-serif;
-    }
-    .shaka-video-container, video {
-      width: 100%; height: 100%;
-      display: block;
-      background: #000;
-    }
+    html,body{margin:0;padding:0;height:100%;width:100%;background:#000;overflow:hidden;font-family:sans-serif;}
+    .shaka-video-container,video{width:100%;height:100%;background:#000;display:block;}
+    .shaka-top-controls{display:none!important}
 
-    /* Remove top gradient */
-    .shaka-top-controls { display: none !important; }
-
-    /* Bottom control bar */
+    /* Control bar */
     .shaka-controls-container {
-      background: rgba(0, 0, 0, 0.7) !important;
-      font-size: 14px;
-      padding: 5px 10px;
+      background:rgba(0,0,0,0.7)!important;
+      font-size:14px;padding:5px 10px;
     }
-    .shaka-control-button { color: #fff !important; }
-    .shaka-overflow-menu {
-      background: rgba(20,20,20,0.95) !important;
-    }
+    .shaka-control-button{color:#fff!important}
+    .shaka-overflow-menu{background:rgba(20,20,20,.95)!important;color:#fff}
+    .shaka-range-element{accent-color:#fff!important} /* sliders in modern browsers */
 
-    /* Big center play button */
-    .shaka-big-play-button {
-      background: #666 !important;
-      border: 3px solid #fff !important;
-      border-radius: 50% !important;
-      width: 100px !important;
-      height: 100px !important;
-      font-size: 48px !important;
-      color: #fff !important;
-      display: flex !important;
-      justify-content: center;
-      align-items: center;
-      opacity: 0.9;
-      transition: opacity 0.5s ease;
+    /* Big center play */
+    .shaka-big-play-button{
+      background:#666!important;border:3px solid #fff!important;border-radius:50%!important;
+      width:100px!important;height:100px!important;font-size:48px!important;color:#fff!important;
+      display:flex!important;justify-content:center;align-items:center;opacity:.9;transition:opacity 1s
     }
-    .shaka-big-play-button:hover {
-      background: #888 !important;
-      opacity: 1;
-    }
+    .shaka-big-play-button:hover{background:#888!important;opacity:1}
+
+    /* Remove unwanted greys while playing */
+    .shaka-video-container.playing .shaka-controls-container,
+    .shaka-video-container.playing .shaka-spinner-container,
+    .shaka-video-container.playing .shaka-overflow-menu,
+    .shaka-video-container.playing .shaka-overflow-panel {background:transparent!important}
 
     /* Loader */
-    #loadingOverlay {
-      position: fixed;
-      top:0; left:0; width:100%; height:100%;
-      background: rgba(0,0,0,0.9);
-      display: flex; flex-direction: column;
-      justify-content: center; align-items: center;
-      z-index: 2000; color: #fff; font-size: 18px;
-      opacity: 1; transition: opacity 1s ease;
-    }
-    #loadingOverlay.hide { opacity:0; pointer-events:none; }
-    .loader {
-      border: 5px solid rgba(255,255,255,0.2);
-      border-top: 5px solid #fff;
-      border-radius: 50%;
-      width: 60px; height: 60px;
-      margin-bottom: 20px;
-      animation: spin 1.2s linear infinite;
-    }
-    @keyframes spin { to { transform:rotate(360deg);} }
+    #loadingOverlay{position:fixed;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;
+      background:rgba(0,0,0,.9);color:#fff;font-size:18px;z-index:2000;opacity:1;transition:opacity 1s}
+    #loadingOverlay.hide{opacity:0;pointer-events:none}
+    .loader{border:5px solid rgba(255,255,255,.2);border-top:5px solid #fff;border-radius:50%;
+      width:60px;height:60px;margin-bottom:20px;animation:spin 1.2s linear infinite}
+    @keyframes spin{to{transform:rotate(360deg)}}
 
-    /* Watermark */
-    .watermark {
-      position: absolute;
-      bottom: 10%;
-      right: 10px;
-      opacity: .5;
-      font-weight: bold;
-      pointer-events: none;
-      color: #fff;
-      z-index: 10;
-    }
+    .watermark{position:absolute;bottom:10%;right:10px;opacity:.5;font-weight:bold;pointer-events:none;color:#fff;z-index:10}
   </style>
 </head>
 <body>
-  <!-- Player -->
   <div data-shaka-player-container class="shaka-video-container">
-    <video id="video" data-shaka-player class="shaka-video" playsinline></video>
+    <video id="video" data-shaka-player playsinline></video>
   </div>
   <div class="watermark">@NOOBGLITCH</div>
 
-  <!-- Smooth Loader -->
   <div id="loadingOverlay">
     <div class="loader"></div>
     <p>Loading stream...</p>
   </div>
 
-  <script>
-    const apiUrl = "https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/api.json";
-    const urlParams = new URLSearchParams(window.location.search);
-    let targetId = urlParams.get("id") || "starhindi"; // default channel
-    const video   = document.getElementById("video");
-    const loader  = document.getElementById("loadingOverlay");
-    let player, ui;
-    let currentUrl = "";
+<script>
+const apiUrl="https://raw.githubusercontent.com/abusaeeidx/CricHd-playlists-Auto-Update-permanent/main/api.json";
+const targetId=new URLSearchParams(location.search).get("id")||"starhindi";
+const video=document.getElementById("video");
+const loader=document.getElementById("loadingOverlay");
+let player,ui,currentUrl="";
 
-    async function initPlayer() {
-      if (!shaka.Player.isBrowserSupported()) {
-        loader.querySelector("p").innerText = "Browser not supported!";
-        return;
-      }
-      player = new shaka.Player(video);
+async function initPlayer(){
+  if(!shaka.Player.isBrowserSupported()){loader.querySelector("p").innerText="Browser not supported!";return;}
+  player=new shaka.Player(video);
 
-      ui = new shaka.ui.Overlay(player, document.querySelector('.shaka-video-container'), video);
-      ui.configure({
-        addBigPlayButton: true,
-        controlPanelElements: [
-          'time_and_duration',
-          'mute', 'volume',
-          'rewind', 'fast_forward', 'play_pause',
-          'spacer',
-          'picture_in_picture',
-          'cast',
-          'fullscreen',
-          'overflow_menu'
-        ],
-        overflowMenuButtons: [
-          'quality',
-          'captions',
-          'playback_rate',
-          'language'
-        ]
-      });
+  // ✅ FULL control panel with seek bar & volume bar
+  ui=new shaka.ui.Overlay(player,document.querySelector(".shaka-video-container"),video);
+  ui.configure({
+    addBigPlayButton:true,
+    controlPanelElements:[
+      'play_pause','time_and_duration','spacer','seek_bar',
+      'mute','volume','volume_bar', // important!
+      'picture_in_picture','fullscreen','overflow_menu'
+    ],
+    overflowMenuButtons:['quality','captions','playback_rate','language']
+  });
 
-      await loadStream();
-      setInterval(loadStream, 10 * 60 * 1000); // refresh every 10min
+  await loadStream();
+  setInterval(loadStream,600000);
+}
+
+async function loadStream(){
+  try{
+    const res=await fetch(apiUrl);
+    if(!res.ok) throw new Error("API fetch failed");
+    const data=await res.json();
+    const channel=data.find(x=>x.id===targetId);
+    if(!channel){document.body.innerHTML="<h2 style='color:white;text-align:center;'>Stream not found</h2>";return;}
+    if(channel.link!==currentUrl){
+      currentUrl=channel.link;
+      await player.load(currentUrl);
+      console.log("🔄 Refreshed:",new Date().toLocaleTimeString());
+      loader.classList.add("hide");
     }
+  }catch(e){console.error(e);loader.querySelector("p").innerText="Failed to load stream";}
+}
 
-    async function loadStream() {
-      try {
-        const res = await fetch(apiUrl);
-        if (!res.ok) throw new Error("Failed to fetch API");
-        const data = await res.json();
-        const channel = data.find(item => item.id === targetId);
+document.addEventListener("DOMContentLoaded",initPlayer);
 
-        if (!channel) {
-          document.body.innerHTML = "<h2 style='color:white;text-align:center;'>Stream not found</h2>";
-          return;
-        }
-        const freshUrl = channel.link;
-        if (freshUrl !== currentUrl) {
-          currentUrl = freshUrl;
-          await player.load(freshUrl);
-          console.log("🔄 Stream refreshed:", new Date().toLocaleTimeString());
+// 📱 Force LANDSCAPE on fullscreen
+document.addEventListener("fullscreenchange",()=>{
+  if(document.fullscreenElement && screen.orientation?.lock){
+    screen.orientation.lock("landscape").catch(()=>{});
+  }
+});
 
-          // Hide loader smoothly
-          loader.classList.add("hide");
-        }
-      } catch (err) {
-        console.error("Error loading stream:", err);
-        loader.querySelector("p").innerText = "Failed to load stream";
-      }
-    }
-
-    document.addEventListener("DOMContentLoaded", initPlayer);
-
-    // 📱 Force LANDSCAPE when entering fullscreen
-    document.addEventListener("fullscreenchange", () => {
-      if (document.fullscreenElement && screen.orientation && screen.orientation.lock) {
-        screen.orientation.lock("landscape").catch(err => {
-          console.log("Orientation lock failed:", err);
-        });
-      }
-    });
-  </script>
+// 🎬 Overlay tweaks
+video.addEventListener("playing",()=>{
+  document.querySelector(".shaka-video-container").classList.add("playing");
+  const btn=document.querySelector(".shaka-big-play-button");
+  if(btn) setTimeout(()=>btn.style.display="none",3000);
+});
+video.addEventListener("pause",()=>{
+  document.querySelector(".shaka-video-container").classList.remove("playing");
+  const btn=document.querySelector(".shaka-big-play-button");
+  if(btn){btn.style.display="flex";btn.style.opacity="1";}
+});
+</script>
 </body>
 </html>
