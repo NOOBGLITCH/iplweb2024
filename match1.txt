@@ -1,30 +1,26 @@
 [
   {
-    "title": "jiohostar offical",
-    "file": "https://ee4ee8c03a26.eu-central-1.playback.live-video.net/api/video/v1/eu-central-1.755921704393.channel.LOohfipmCQDP.m3u8"
+    "title": "Sony Ten 1 ENGLISH",
+    "qualities": {
+      "144P": "https://tataplay.slivcdn.com/hls/live/2011747-b/TEN1HD/hdntl=exp=1750582085~acl=%2f*~id=9e40d10a-ddc8-413e-8bad-fc250d39a4c7~data=hdntl~hmac=8a461045379b43fb696b19ba5f49f38d5017755a198550f54e5d47ecd4b974ae/master_108.m3u8",
+      "240P": "https://tataplay.slivcdn.com/hls/live/2011747-b/TEN1HD/hdntl=exp=1750582085~acl=%2f*~id=9e40d10a-ddc8-413e-8bad-fc250d39a4c7~data=hdntl~hmac=8a461045379b43fb696b19ba5f49f38d5017755a198550f54e5d47ecd4b974ae/master_224.m3u8",
+      "280P": "https://tataplay.slivcdn.com/hls/live/2011747-b/TEN1HD/hdntl=exp=1750582085~acl=%2f*~id=9e40d10a-ddc8-413e-8bad-fc250d39a4c7~data=hdntl~hmac=8a461045379b43fb696b19ba5f49f38d5017755a198550f54e5d47ecd4b974ae/master_412.m3u8",
+      "360P": "https://tataplay.slivcdn.com/hls/live/2011747-b/TEN1HD/hdntl=exp=1750582085~acl=%2f*~id=9e40d10a-ddc8-413e-8bad-fc250d39a4c7~data=hdntl~hmac=8a461045379b43fb696b19ba5f49f38d5017755a198550f54e5d47ecd4b974ae/master_664.m3u8",
+      "540P": "https://tataplay.slivcdn.com/hls/live/2011747-b/TEN1HD/hdntl=exp=1750582085~acl=%2f*~id=9e40d10a-ddc8-413e-8bad-fc250d39a4c7~data=hdntl~hmac=8a461045379b43fb696b19ba5f49f38d5017755a198550f54e5d47ecd4b974ae/master_900.m3u8",
+      "720P": "https://tataplay.slivcdn.com/hls/live/2011747-b/TEN1HD/hdntl=exp=1750582085~acl=%2f*~id=9e40d10a-ddc8-413e-8bad-fc250d39a4c7~data=hdntl~hmac=8a461045379b43fb696b19ba5f49f38d5017755a198550f54e5d47ecd4b974ae/master_1300.m3u8",
+      "1080P": "https://tataplay.slivcdn.com/hls/live/2011747-b/TEN1HD/hdntl=exp=1750582085~acl=%2f*~id=9e40d10a-ddc8-413e-8bad-fc250d39a4c7~data=hdntl~hmac=8a461045379b43fb696b19ba5f49f38d5017755a198550f54e5d47ecd4b974ae/master_3500.m3u8"
+    }
   },
   {
-    "title": "star sports 2 hindi",
-    "file": "https://v18tataplaysyndication.akamaized.net/bpk-tv/StarSports_2_Hin_HD_voot_MOB/output03/index.m3u8?hdnea=exp=1744565406~acl=/*~hmac=e8a70bb1ba3e5c5864c22244494a6f64be69020d7b523bf75e93d3a542e8b963"
-  },
-  {
-    "title": "tsports English",
-    "file": "https://live-test.tsports.com/live-02/index.m3u8?hdnts=URLPrefix=aHR0cHM6Ly9saXZlLXRlc3QudHNwb3J0cy5jb20v~Expires=17443778803600~hmac=35d8f03492cf91d3b1098b718e8a30d9362590d6cc0072f8e52c4e0fc0962f26"
-  },
-  {
-    "title": "server 2 smooth hindi",
-    "file": "https://vkvsd251.okcdn.ru/cmaf/8177201777196/sig/fHc85OffGp0/srcIp/172.69.87.73/urls/45.136.22.65/expires/1744491270975/clientType/13/srcAg/CHROME/fromCache/1/mid/9469206211372/id/8177201777196/get/hls_9469206211372.VaRDHyXezr0.m3u8"
-  },
-  {
-    "title": "jiothostar hindi 1080p",
-    "file": "https://prod-sports-hin-fa.jiocinema.com/hls/live/2117033/inallow-ipl-2025/hin/1540040249/15mindvrm0196aee80e6b0944cfb66338cda8d9b49011april2025/master_ap_1080_6.m3u8"
-  },
-  {
-    "title": "jiothostar hindi 720p",
-    "file": "https://prod-sports-hin-fa.jiocinema.com/hls/live/2117033/inallow-ipl-2025/hin/1540040249/15mindvrm0196aee80e6b0944cfb66338cda8d9b49011april2025/master_apm_720_5.m3u8"
-  },
-  {
-    "title": "jiothostar hindi 480p",
-    "file": "https://prod-sports-hin-fa.jiocinema.com/hls/live/2117033/inallow-ipl-2025/hin/1540040249/15mindvrm0196aee80e6b0944cfb66338cda8d9b49011april2025/master_apmf_480_4.m3u8"
+    "title": "Sony Ten 3 HINDI",
+    "qualities": {
+      "144P": "https://tataplay.slivcdn.com/hls/live/2020591-b/TEN3HD/hdntl=exp=1750582085~acl=%2f*~id=9e40d10a-ddc8-413e-8bad-fc250d39a4c7~data=hdntl~hmac=8a461045379b43fb696b19ba5f49f38d5017755a198550f54e5d47ecd4b974ae/master_108.m3u8",
+      "240P": "https://tataplay.slivcdn.com/hls/live/2020591-b/TEN3HD/hdntl=exp=1750582085~acl=%2f*~id=9e40d10a-ddc8-413e-8bad-fc250d39a4c7~data=hdntl~hmac=8a461045379b43fb696b19ba5f49f38d5017755a198550f54e5d47ecd4b974ae/master_224.m3u8",
+      "280P": "https://tataplay.slivcdn.com/hls/live/2020591-b/TEN3HD/hdntl=exp=1750582085~acl=%2f*~id=9e40d10a-ddc8-413e-8bad-fc250d39a4c7~data=hdntl~hmac=8a461045379b43fb696b19ba5f49f38d5017755a198550f54e5d47ecd4b974ae/master_412.m3u8",
+      "360P": "https://tataplay.slivcdn.com/hls/live/2020591-b/TEN3HD/hdntl=exp=1750582085~acl=%2f*~id=9e40d10a-ddc8-413e-8bad-fc250d39a4c7~data=hdntl~hmac=8a461045379b43fb696b19ba5f49f38d5017755a198550f54e5d47ecd4b974ae/master_664.m3u8",
+      "540P": "https://tataplay.slivcdn.com/hls/live/2020591-b/TEN3HD/hdntl=exp=1750582085~acl=%2f*~id=9e40d10a-ddc8-413e-8bad-fc250d39a4c7~data=hdntl~hmac=8a461045379b43fb696b19ba5f49f38d5017755a198550f54e5d47ecd4b974ae/master_900.m3u8",
+      "720P": "https://tataplay.slivcdn.com/hls/live/2020591-b/TEN3HD/hdntl=exp=1750582085~acl=%2f*~id=9e40d10a-ddc8-413e-8bad-fc250d39a4c7~data=hdntl~hmac=8a461045379b43fb696b19ba5f49f38d5017755a198550f54e5d47ecd4b974ae/master_1300.m3u8",
+      "1080P": "https://tataplay.slivcdn.com/hls/live/2020591-b/TEN3HD/hdntl=exp=1750582085~acl=%2f*~id=9e40d10a-ddc8-413e-8bad-fc250d39a4c7~data=hdntl~hmac=8a461045379b43fb696b19ba5f49f38d5017755a198550f54e5d47ecd4b974ae/master_3500.m3u8"
+    }
   }
 ]
