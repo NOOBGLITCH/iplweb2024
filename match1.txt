@@ -1,8 +1,8 @@
 [
-{
+  {
     "title": "Master Link",
     "file": "https://dish.slivcdn.com/hls/live/2011670/SonyMaxhd/master.m3u8"
-  }
+  },
   {
     "title": "1080P",
     "file": "https://dish.slivcdn.com/hls/live/2020591/TEN3HD/master_3500.m3u8"
