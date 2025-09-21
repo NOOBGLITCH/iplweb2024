@@ -1,43 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sports Stream Player</title>
-    <script src="playerjs2.js"></script>
-    <meta http-equiv="Access-Control-Allow-Origin" content="*">
-  
-    <style>
-      #player {
-        height: 100%;
-        width: 100%;
-      }
+    <!-- Player.js library from CDN -->
+    <script src="https://cdn.jsdelivr.net/gh/NOOBGLITCH/iplweb2024/playerjs2.js"></script>
 
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-      }
+    <style>
+        #player {
+            height: 100%;
+            width: 100%;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <div id="player"></div>
 
-    <div id="antiAdblockMessage" class="ad-blocked-message" style="display: none;">
-      <h2>Ad Blocker Detected</h2>
-      <p>Please disable your ad blocker to watch the stream.</p>
-      <button onclick="location.reload()">Reload Page</button>
-    </div>
-
-    <div id="fakeAd" style="position: absolute; width: 1px; height: 1px; top: -9999px; left: -9999px;" class="ad-zone banner-ads ads"></div>
-
     <script>
-    var player = new Playerjs({
-      id: "player",
-      file: "match1.txt",
-      poster: "https://i.ibb.co/1G4N2fgF/welocome-to-our-website.png" 
-    }); 
+        // Initialize the Player.js instance
+        var player = new Playerjs({
+            id: "player",
+            file: "match1.txt",
+            poster: "https://i.ibb.co/1G4N2fgF/welocome-to-our-website.png"
+        });
     </script>
-  </body>
+</body>
 </html>
