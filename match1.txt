@@ -1,30 +1,14 @@
 [
   {
-    "title": "Master Link",
-    "file": "https://dish.slivcdn.com/hls/live/2011670/SonyMaxhd/master.m3u8"
+    "title": "1080p",
+    "file": "https://hugh.cdn.rumble.cloud/live/3fms19g4/slot-155/2x9w-00ux_1080p/chunklist_DVR.m3u8"
   },
   {
-    "title": "1080P",
-    "file": "https://dish.slivcdn.com/hls/live/2020591/TEN3HD/master_3500.m3u8"
+    "title": "720p",
+    "file": "https://hugh.cdn.rumble.cloud/live/3fms19g4/slot-155/2x9w-00ux_720p/chunklist_DVR.m3u8"
   },
   {
-    "title": "720P",
-    "file": "https://dish.slivcdn.com/hls/live/2020591/TEN3HD/master_1300.m3u8"
-  },
-  {
-    "title": "540P",
-    "file": "https://dish.slivcdn.com/hls/live/2020591/TEN3HD/master_900.m3u8"
-  },
-  {
-    "title": "360P",
-    "file": "https://dish.slivcdn.com/hls/live/2020591/TEN3HD/master_664.m3u8"
-  },
-  {
-    "title": "280P",
-    "file": "https://dish.slivcdn.com/hls/live/2020591/TEN3HD/master_412.m3u8"
-  },
-  {
-    "title": "240P",
-    "file": "https://dish.slivcdn.com/hls/live/2020591/TEN3HD/master_224.m3u8"
+    "title": "360p",
+    "file": "https://hugh.cdn.rumble.cloud/live/3fms19g4/slot-155/2x9w-00ux_360p/chunklist_DVR.m3u8"
   }
 ]
