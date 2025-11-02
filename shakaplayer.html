@@ -2,219 +2,131 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Live Sports - Shaka Low Latency</title>
-  <meta name="referrer" content="no-referrer">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- ✅ Latest Shaka Player UI v4.16.3 -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.16.3/controls.css" crossorigin="anonymous">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.16.3/shaka-player.ui.js" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <!-- Material Icons -->
+  <title>NoobGLTCH – Shaka Player (MPD Clear Key)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Shaka Player UI & Material Icons -->
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.16.3/controls.css"
+        crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.16.3/shaka-player.ui.js"
+          crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   <style>
-    html,
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      height: 100%;
       width: 100%;
-      background: #000;
+      height: 100%;
       overflow: hidden;
-      font-family: sans-serif;
+      background: #000;
+      font-family: Arial, sans-serif;
     }
-    /* -------------------- replay fade style -------------------- */
-    .shaka-replay-button-container {
-      transition: opacity .6s ease;
-    }
-    .shaka-replay-button-container.hide-replay {
-      opacity: 0;
-      pointer-events: none;
-    }
-    /* hide central big play icon completely */
-    .shaka-big-play-button {
-      display: none !important
-    }
-    .shaka-video-container,
-    video {
+    .shaka-video-container, video {
       width: 100%;
       height: 100%;
       background: #000;
       display: block;
     }
-    .shaka-top-controls {
-      display: none !important
+    .watermark {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      opacity: .5;
+      font-weight: bold;
+      color: #e53935;
+      z-index: 10;
+      pointer-events: none;
     }
-    .shaka-controls-container {
-      background: rgba(0, 0, 0, 0.0) !important;
-      font-size: 14px;
-      padding: 5px 10px;
-    }
-    .shaka-control-button {
-      color: #fff !important
-    }
-    .shaka-overflow-menu {
-      background: rgba(20, 20, 20, .95) !important;
-      color: #fff
-    }
-    .shaka-range-element {
-      accent-color: #fff !important
-    }
-    .shaka-big-play-button {
-      background: #666 !important;
-      border: 3px solid #fff !important;
-      border-radius: 50% !important;
-      width: 100px !important;
-      height: 100px !important;
-      font-size: 48px !important;
-      color: #fff !important;
-      display: flex !important;
-      justify-content: center;
-      align-items: center;
-      opacity: .9;
-      transition: opacity 1s
-    }
-    .shaka-big-play-button:hover {
-      background: #888 !important;
-      opacity: 1
-    }
-    #loadingOverlay {
+    #overlay {
       position: fixed;
       inset: 0;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      background: rgba(0, 0, 0, .9);
+      justify-content: center;
+      flex-direction: column;
+      background: rgba(0,0,0,0.9);
       color: #fff;
-      font-size: 18px;
-      z-index: 2000;
-      opacity: 1;
-      transition: opacity 1s
+      font-size: 16px;
+      z-index: 1000;
+      transition: opacity 0.5s;
     }
-    #loadingOverlay.hide {
-      opacity: 0;
-      pointer-events: none
-    }
-    .watermark {
-      position: absolute;
-      bottom: 80%;
-      right: 80px;
-      opacity: .5;
-      font-weight: bold;
-      pointer-events: none;
-      color: #E61919;
-      z-index: 10
-    }
+    #overlay.hide { opacity: 0; pointer-events: none; }
   </style>
 </head>
+
 <body>
   <div data-shaka-player-container class="shaka-video-container">
-    <video id="video"></video>
+    <video id="video" playsinline></video>
   </div>
   <div class="watermark">@NOOBGLITCH</div>
-  <div id="loadingOverlay">
-    <div class="loader"></div>
-    <p>Loading stream...</p>
-  </div>
+  <div id="overlay">Loading MPD stream …</div>
+
   <script>
-    document.addEventListener('DOMContentLoaded', async () => {
+    document.addEventListener("DOMContentLoaded", async () => {
       shaka.polyfill.installAll();
+
       if (!shaka.Player.isBrowserSupported()) {
-        console.error('Browser not supported');
-        document.getElementById('loadingOverlay').querySelector("p").innerText = "Browser not supported!";
+        document.getElementById("overlay").innerText = "Browser not supported.";
         return;
       }
-      const video = document.getElementById('video');
+
+      const manifestUri =
+        "https://ottb.live.cf.ww.aiv-cdn.net/sin-nitro/live/dash/enc/feh5lmnfkl/out/v1/2f30a0bcdbc64a09b2e101d0b71ed290/cenc.mpd";
+      const clearKeys = {
+        "c349ec4cb941fbf48a81798dffe7e5eb":
+        "857bfaea3e7173bc3c63ce3749cabfcf"
+      };
+
+      const video = document.getElementById("video");
+      const container = document.querySelector(".shaka-video-container");
       const player = new shaka.Player(video);
-      const container = document.querySelector('.shaka-video-container');
+
+      // Shaka UI overlay with Material Icons
       const ui = new shaka.ui.Overlay(player, container, video);
       ui.configure({
-        addBigPlayButton: true, 
         singleClickForPlayAndPause: true,
         controlPanelElements: [
-          'play_pause', 'time_and_duration', 'spacer', 'mute', 'volume',
-          'language', 'captions', 'picture_in_picture', 'quality', 'fullscreen'
+          "play_pause",
+          "time_and_duration",
+          "spacer",
+          "mute",
+          "volume",
+          "captions",
+          "picture_in_picture",
+          "airplay",
+          "cast",
+          "quality",
+          "fullscreen"
         ],
-        volumeBarColors: {
-          base: 'rgba(255, 0, 0, 0.6)',
-          level: 'rgb(255, 0, 0)'
-        },
+        addBigPlayButton: true,
         seekBarColors: {
-          base: 'rgba(255, 165, 0, 0.4)',
-          buffered: 'rgba(255, 140, 0, 0.6)',
-          played: 'rgb(255, 69, 0)'
+          base: "rgba(255,255,255,0.3)",
+          buffered: "rgba(255,255,255,0.5)",
+          played: "#ffffff"
         }
       });
-      let cookieHeader = "";
-      try {
-        const response = await fetch("https://raw.githubusercontent.com/alex8875/m3u/refs/heads/main/jtv.m3u");
-        const m3uText = await response.text();
-        const match = m3uText.match(/"cookie":"([^"]+)"/);
-        if (match && match[1]) {
-          cookieHeader = match[1];
-          console.log("Cookie Token fetched:", cookieHeader);
-        } else {
-          console.warn("No cookie found in M3U file");
-        }
-      } catch (err) {
-        console.error("Failed to fetch token:", err);
-      }
-   const drmConfig = {
-        clearKeys: {
-          "400131994b445d8c8817202248760fda": "2d56cb6f07a75b9aff165d534ae2bfc4"
-        }
-      };
-      const streamUrl = "https://jiotvpllive.cdn.jio.com/bpk-tv/Star_Sports_HD1_Hindi_BTS/output/index.mpd";
+
       player.configure({
-        drm: drmConfig,
-        streaming: {
-          lowLatencyMode: true,
-          bufferingGoal: 15,
-          rebufferingGoal: 2,
-          bufferBehind: 15,
-          retryParameters: {
-            timeout: 10000,
-            maxAttempts: 5,
-            baseDelay: 300,
-            backoffFactor: 1.2
-          },
-          segmentRequestTimeout: 8000,
-          segmentPrefetchLimit: 2
-        },
-        manifest: {
-          retryParameters: {
-            timeout: 8000,
-            maxAttempts: 3
-          }
-        }
+        drm: { clearKeys: clearKeys },
+        streaming: { lowLatencyMode: true }
       });
-      player.getNetworkingEngine().registerRequestFilter((type, request) => {
-        request.headers["Referer"] = "https://www.jiotv.com/";
-        request.headers["User-Agent"] = "plaYtv/7.1.5 (Linux;Android 13) ExoPlayerLib/2.11.6";
-        if (cookieHeader) request.headers["Cookie"] = cookieHeader;
-        if (
-          (type === shaka.net.NetworkingEngine.RequestType.MANIFEST ||
-            type === shaka.net.NetworkingEngine.RequestType.SEGMENT) &&
-          request.uris[0] && cookieHeader && !request.uris[0].includes("hdnea=")
-        ) {
-          const sep = request.uris[0].includes("?") ? "&" : "?";
-          request.uris[0] += sep + cookieHeader;
-        }
-      });
+
       try {
-        await player.load(streamUrl);
-        console.log("Stream loaded successfully");
-        document.getElementById("loadingOverlay").classList.add("hide");
-      } catch (error) {
-        console.error("Load error:", error);
-        const overlay = document.getElementById("loadingOverlay");
-        overlay.querySelector("p").innerText = "Failed to load stream";
+        await player.load(manifestUri);
+        console.log("✅ MPD stream loaded with Clear Key DRM");
+        document.getElementById("overlay").classList.add("hide");
+      } catch (err) {
+        console.error("Load error:", err);
+        const overlay = document.getElementById("overlay");
+        overlay.textContent = "Failed to load stream";
         overlay.classList.remove("hide");
       }
-      // Minor styling tweak: hide play button during playback
+
       video.addEventListener("playing", () => {
         const btn = document.querySelector(".shaka-big-play-button");
-        if (btn) setTimeout(() => btn.style.display = "none", 2000);
+        if (btn) setTimeout(() => (btn.style.display = "none"), 1500);
       });
       video.addEventListener("pause", () => {
         const btn = document.querySelector(".shaka-big-play-button");
