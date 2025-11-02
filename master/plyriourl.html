@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>NoobGLTCH – Strict Fullscreen Plyr HLS Player</title>
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0" />
+
+  <!-- Plyr default stylesheet -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.css" />
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100vw;
+      height: 100vh;
+      overflow: hidden;
+      background: #000;
+    }
+    #player-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    video {
+      width: 100vw !important;
+      height: 100vh !important;
+      background: #000;
+      object-fit: cover; /* fills viewport with video */
+      display: block;
+    }
+    #placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: #ccc;
+      background: #000;
+      font-size: 1.2em;
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+    code { color: #7ff; }
+  </style>
+
+  <!-- Plyr + HLS.js -->
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+  <script src="https://cdn.jsdelivr.net/npm/plyr@3.7.8/dist/plyr.min.js"></script>
+</head>
+
+<body>
+  <div id="player-container">
+    <video id="player" controls playsinline crossorigin></video>
+    <div id="placeholder" style="display:none;">
+      🔇 No stream loaded.<br>Add <code>?url=YOUR_HLS_LINK</code> to the page URL.
+    </div>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const streamURL =
+      params.get("url") ||
+      "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8";
+
+    const video = document.getElementById("player");
+    const placeholder = document.getElementById("placeholder");
+
+    if (!streamURL) {
+      placeholder.style.display = "flex";
+    } else {
+      if (Hls.isSupported()) {
+        const hls = new Hls();
+        hls.loadSource(streamURL);
+        hls.attachMedia(video);
+
+        hls.on(Hls.Events.MANIFEST_PARSED, () => {
+          new Plyr(video, {
+            controls: [
+              'play-large', 'play', 'pause',
+              'progress', 'current-time', 'duration',
+              'mute', 'volume',
+              'captions', 'settings', 'pip', 'airplay', 'fullscreen'
+            ]
+          });
+          console.log("🟢 Plyr + HLS ready");
+        });
+
+        hls.on(Hls.Events.ERROR, (event, data) => {
+          console.warn("⚠️ HLS error:", data);
+        });
+      } else if (video.canPlayType("application/vnd.apple.mpegurl")) {
+        video.src = streamURL;
+        new Plyr(video);
+      } else {
+        placeholder.style.display = "flex";
+        placeholder.textContent = "❌ Browser does not support HLS playback.";
+      }
+    }
+
+    // Maintain exact 100 % viewport on resize/orientation changes
+    const resizeFix = () => {
+      document.documentElement.style.height = window.innerHeight + "px";
+      document.documentElement.style.width = window.innerWidth + "px";
+      document.body.style.height = window.innerHeight + "px";
+      document.body.style.width = window.innerWidth + "px";
+    };
+    window.addEventListener("resize", resizeFix);
+    resizeFix();
+  </script>
+</body>
+</html>

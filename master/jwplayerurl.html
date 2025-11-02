@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NoobGLTCH – Universal JW HLS Player</title>
+  <link rel="stylesheet" href="https://cxh.pages.dev/style.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: #000;
+      color: #fff;
+      font-family: sans-serif;
+      overflow: hidden; /* 🚫 removes scrollbars */
+    }
+    #player {
+      position: absolute;
+      inset: 0; /* shorthand for top:0; right:0; bottom:0; left:0; */
+    }
+    #placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      text-align: center;
+      background: radial-gradient(circle at center, #111 0%, #000 80%);
+      color: #aaa;
+    }
+    code { color: #6cf; }
+  </style>
+</head>
+<body>
+  <div id="player"></div>
+  <div id="placeholder" style="display:none;">
+    🔇 No stream loaded.<br>
+    Add <code>?url=YOUR_HLS_LINK</code> to the page URL.
+  </div>
+
+  <!-- JW Player library -->
+  <script src="https://content.jwplatform.com/libraries/KB5zFt7A.js"></script>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const streamURL = params.get("url");
+
+    if (!streamURL) {
+      document.getElementById("placeholder").style.display = "flex";
+    } else {
+      const player = jwplayer("player").setup({
+        file: streamURL,
+        aspectratio: "16:9",
+        controls: true,
+        pipIcon: true,
+        preload: "metadata",
+        autostart: false,
+        skin: {
+          controlbar: {
+            icons: "white",
+            background: "rgba(0,0,0,0.4)",
+            buttons: ["play", "rewind", "next", "cc", "pip", "fullscreen"]
+          }
+        },
+        title: "HLS Stream Player",
+        quality: { defaultAuto: true },
+        fallback: { message: "Your browser does not support HLS playback." }
+      });
+
+      player.on("ready", () => console.log("🟢 JW Player ready – URL:", streamURL));
+      player.on("error", e => console.error("JW Player error:", e.message));
+    }
+  </script>
+</body>
+</html>

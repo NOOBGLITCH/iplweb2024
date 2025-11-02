@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NoobGLTCH – Universal PlayerJS HLS Player (Full Size)</title>
+  <link rel="stylesheet" href="https://cxh.pages.dev/style.css" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: #000;
+      color: #fff;
+      font-family: sans-serif;
+      overflow: hidden; /* no scrollbars ever */
+    }
+    #player {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    #placeholder {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      text-align: center;
+      background: radial-gradient(circle at center, #111 0%, #000 80%);
+      color: #aaa;
+    }
+    code { color: #6cf; }
+  </style>
+</head>
+<body>
+  <div id="player"></div>
+  <div id="placeholder" style="display:none;">
+    🔇 No stream loaded.<br>
+    Add <code>?url=YOUR_HLS_LINK</code> to the page URL.
+  </div>
+
+  <!-- Player.js library -->
+  <script src="https://cdn.jsdelivr.net/gh/NOOBGLITCH/iplweb2024/playerjs2.js"></script>
+
+  <script>
+    // Get ?url= query parameter
+    const params = new URLSearchParams(window.location.search);
+    const streamURL = params.get("url");
+
+    if (!streamURL) {
+      // Show placeholder if URL missing
+      document.getElementById("placeholder").style.display = "flex";
+    } else {
+      // Initialize Player.js with full‑screen sizing
+      const player = new Playerjs({
+        id: "player",
+        file: streamURL,
+        poster: "",       // optional splash image
+        autoplay: 0,
+        pip: 1,           // enable picture‑in‑picture if supported
+        pause: 1,
+        seek: 1
+      });
+      console.log("🟢 Player.js ready – URL:", streamURL);
+    }
+  </script>
+</body>
+</html>
