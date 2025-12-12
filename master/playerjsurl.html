@@ -47,7 +47,6 @@
     Add <code>?url=YOUR_HLS_LINK</code> to the page URL.
   </div>
 
-  <!-- Player.js library -->
   <script src="https://cdn.jsdelivr.net/gh/NOOBGLITCH/iplweb2024/playerjs2.js"></script>
 
   <script>
@@ -69,7 +68,38 @@
         pause: 1,
         seek: 1
       });
+
       console.log("🟢 Player.js ready – URL:", streamURL);
+
+      // --- FIX: Landscape Lock Logic ---
+      
+      // 1. Listen for standard Fullscreen changes
+      document.addEventListener("fullscreenchange", handleFullscreenChange);
+      document.addEventListener("webkitfullscreenchange", handleFullscreenChange); // Safari/Chrome older
+      document.addEventListener("mozfullscreenchange", handleFullscreenChange);    // Firefox
+      document.addEventListener("msfullscreenchange", handleFullscreenChange);     // IE/Edge
+
+      function handleFullscreenChange() {
+        // Check if ANY element is currently in fullscreen
+        const isFullscreen = document.fullscreenElement || 
+                             document.webkitFullscreenElement || 
+                             document.mozFullScreenElement || 
+                             document.msFullscreenElement;
+
+        if (isFullscreen) {
+          // Attempt to lock to Landscape
+          if (screen.orientation && screen.orientation.lock) {
+            screen.orientation.lock("landscape").catch((err) => {
+              console.log("Orientation lock failed (likely not supported on this device/browser):", err);
+            });
+          }
+        } else {
+          // Unlock orientation when exiting fullscreen
+          if (screen.orientation && screen.orientation.unlock) {
+            screen.orientation.unlock();
+          }
+        }
+      }
     }
   </script>
 </body>
