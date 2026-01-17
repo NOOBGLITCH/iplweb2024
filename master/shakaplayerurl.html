@@ -2,42 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>NoobGLTCH – Shaka Player </title>
+  <title>NoobGLTCH – Forced Autoplay Player</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.16.3/controls.css"
-        crossorigin="anonymous">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.16.3/shaka-player.ui.js"
-          crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.16.3/controls.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.16.3/shaka-player.ui.js"></script>
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: #000;
-      font-family: Arial, sans-serif;
-    }
-    .shaka-video-container, video {
-      width: 100%;
-      height: 100%;
-      background: #000;
-      display: block;
-    }
+    html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #000; font-family: 'Segoe UI', sans-serif; }
+    .shaka-video-container, video { width: 100%; height: 100%; background: #000; display: block; }
+    
+    /* WM Opacity 2 (Full Visibility) */
     .watermark {
       position: absolute;
       top: 40px; 
       right: 20px;
-      opacity: 2; /* Adjusted for better visibility */
+      opacity: 2; 
       font-weight: bold;
       color: #e53935;
       z-index: 10;
       pointer-events: none;
+      font-size: 1.2rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
+
     #overlay {
       position: fixed;
       inset: 0;
@@ -45,12 +34,26 @@
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      background: rgba(0, 0, 0, 0.9);
+      background: #000;
       color: #fff;
-      font-size: 16px;
       z-index: 1000;
-      transition: opacity 0.5s;
+      transition: opacity 0.3s;
     }
+
+    /* Forced Start Button to enable audio */
+    #startBtn {
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #fff;
+      background: #e53935;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(229, 57, 53, 0.4);
+      display: none; /* Shown after load */
+    }
+
     #overlay.hide { opacity: 0; pointer-events: none; }
   </style>
 </head>
@@ -60,61 +63,52 @@
     <video id="video" playsinline autoplay></video>
   </div>
   <div class="watermark">@NOOBGLITCH</div>
-  <div id="overlay">Loading player...</div>
+
+  <div id="overlay">
+    <div id="loader" style="margin-bottom: 20px;">Initializing Stream...</div>
+    <button id="startBtn">START STREAMING</button>
+  </div>
 
   <script>
     document.addEventListener("DOMContentLoaded", async () => {
       shaka.polyfill.installAll();
 
-      if (!shaka.Player.isBrowserSupported()) {
-        document.getElementById("overlay").innerText = "Browser not supported.";
-        return;
-      }
-
       const video = document.getElementById("video");
+      const startBtn = document.getElementById("startBtn");
+      const overlay = document.getElementById("overlay");
+      const loader = document.getElementById("loader");
       const container = document.querySelector(".shaka-video-container");
-      const player = new shaka.Player(video);
 
+      const player = new shaka.Player(video);
       const ui = new shaka.ui.Overlay(player, container, video);
+
       ui.configure({
-        singleClickForPlayAndPause: true,
-        controlPanelElements: [
-          'play_pause', 'time_and_duration', 'spacer', 'mute', 'volume',
-          'captions', 'picture_in_picture', 'airplay', 'cast', 'quality', 'fullscreen'
-        ],
-        addBigPlayButton: true,
-        seekBarColors: {
-          base: 'rgba(255,255,255,0.3)',
-          buffered: 'rgba(255,255,255,0.5)',
-          played: '#ffffff'
-        }
+        addBigPlayButton: false, // We use our own start button
+        controlPanelElements: ['play_pause', 'time_and_duration', 'spacer', 'mute', 'volume', 'quality', 'fullscreen']
       });
 
       const params = new URLSearchParams(location.search);
-      const streamURL = params.get("url") ||
-        "https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd";
+      const streamURL = params.get("url") || "https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd";
 
       player.configure({
-        streaming: {
-          lowLatencyMode: true,
-        }
+        streaming: { lowLatencyMode: true }
       });
 
       try {
         await player.load(streamURL);
-        console.log("✅ Stream loaded successfully");
-        
-        // Hide overlay and attempt playback
-        document.getElementById("overlay").classList.add("hide");
-        
-        // Ensure play is called even if autoplay attribute is ignored
-        video.play().catch(e => {
-            console.warn("Autoplay with sound was blocked. Video is playing muted.");
+        // Show Start Button once stream is ready
+        loader.style.display = "none";
+        startBtn.style.display = "block";
+
+        startBtn.addEventListener("click", () => {
+          video.muted = false; // Forced unmuted
+          video.play();
+          overlay.classList.add("hide");
         });
 
       } catch (err) {
-        console.error("Load error:", err);
-        document.getElementById("overlay").innerText = "Failed to load stream";
+        loader.innerText = "Error: Failed to load stream.";
+        console.error(err);
       }
     });
   </script>
