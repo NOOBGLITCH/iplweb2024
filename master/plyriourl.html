@@ -20,11 +20,16 @@
       font-weight: bold;
       font-size: 18px;
       text-transform: uppercase;
-      opacity: 2; /* Adjusted for visibility */
+      opacity: 2; /* Reduced slightly for better visibility of video */
       z-index: 10;
       pointer-events: none;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
       user-select: none;
+    }
+
+    /* Ensure Plyr takes up full height for orientation shifts */
+    .plyr--video {
+      height: 100% !important;
     }
   </style>
 </head>
@@ -51,25 +56,21 @@
     abandonFragmentTimeout: 3000
   };
 
-  // Function to force landscape on Android/Mobile
-  async function forceLandscape() {
-    try {
-      // Browsers require Fullscreen before locking orientation
-      const container = document.documentElement; 
-      
-      if (container.requestFullscreen) {
-        await container.requestFullscreen();
-      } else if (container.webkitRequestFullscreen) {
-        await container.webkitRequestFullscreen();
-      }
-
-      // Lock to landscape
+  function initializePlayer(playerInstance, hlsInstance = null) {
+    // Landscape Support Logic
+    playerInstance.on('enterfullscreen', () => {
       if (screen.orientation && screen.orientation.lock) {
-        await screen.orientation.lock('landscape').catch(err => console.log("Orientation lock ignored."));
+        screen.orientation.lock('landscape').catch(err => {
+          console.warn("Orientation lock ignored:", err);
+        });
       }
-    } catch (error) {
-      console.warn("Fullscreen/Orientation shift failed: ", error);
-    }
+    });
+
+    playerInstance.on('exitfullscreen', () => {
+      if (screen.orientation && screen.orientation.unlock) {
+        screen.orientation.unlock();
+      }
+    });
   }
 
   if (Hls.isSupported()) {
@@ -94,25 +95,18 @@
         }
       });
 
-      // Trigger orientation lock on first play/click
-      player.on('play', () => {
-        forceLandscape();
-      });
-
+      initializePlayer(player, hls);
       video.play().catch(() => {
         console.log("Autoplay blocked, waiting for user interaction.");
       });
     });
     window.hls = hls; 
-
   } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-    // Safari fallback
+    // For Safari/iOS native HLS support
     video.src = source; 
     const player = new Plyr(video, { autoplay: true });
-    
-    player.on('play', () => {
-      forceLandscape();
-    });
+    initializePlayer(player);
+    video.play();
   }
 </script>
 </body>
