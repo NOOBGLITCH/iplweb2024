@@ -1,43 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <title>NoobGLTCH – Direct Force Player</title>
+  <title>NoobGLTCH – Shaka Player (Original UI Restored)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.16.3/controls.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.16.3/shaka-player.ui.js"></script>
+
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.16.3/controls.css"
+        crossorigin="anonymous">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.16.3/shaka-player.ui.js"
+          crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
   <style>
-    html,
-    body {
+    html, body {
       margin: 0;
       padding: 0;
       width: 100%;
       height: 100%;
       overflow: hidden;
       background: #000;
+      font-family: Arial, sans-serif;
     }
-
-    .shaka-video-container,
-    video {
+    .shaka-video-container, video {
       width: 100%;
       height: 100%;
       background: #000;
       display: block;
     }
-
-    /* WM Opacity 2 - Absolute Visibility */
+    
+    /* WM Opacity 2 - Forced High Visibility */
     .watermark {
       position: absolute;
-      top: 40px;
+      top: 40px; 
       right: 20px;
-      opacity: 2;
+      opacity: 2; 
       font-weight: bold;
       color: #e53935;
       z-index: 10;
       pointer-events: none;
-      font-size: 1.2rem;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.9);
     }
 
     #overlay {
@@ -46,16 +48,14 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #000;
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.9);
       color: #fff;
+      font-size: 16px;
       z-index: 1000;
-      transition: opacity 1;
-      pointer-events: none;
+      transition: opacity 0.5s;
     }
-
-    #overlay.hide {
-      opacity: 0;
-    }
+    #overlay.hide { opacity: 0; pointer-events: none; }
   </style>
 </head>
 
@@ -64,52 +64,93 @@
     <video id="video" playsinline></video>
   </div>
   <div class="watermark">@NOOBGLITCH</div>
-  <div id="overlay">LOADING...</div>
+  <div id="overlay">Loading player...</div>
 
   <script>
     const video = document.getElementById("video");
     const overlay = document.getElementById("overlay");
 
-    // This function forces un-mute on the very first interaction
+    // Global function to force audio on first user touch/click
     function forceUnmute() {
-      video.muted = false;
-      video.volume = 1.0;
-      console.log("🔊 Audio Forced Unmuted by User Interaction");
+      if (video.muted) {
+        video.muted = false;
+        video.volume = 1.0;
+        console.log("🔊 Audio Restored");
+      }
     }
 
     document.addEventListener("DOMContentLoaded", async () => {
       shaka.polyfill.installAll();
+
+      if (!shaka.Player.isBrowserSupported()) {
+        overlay.innerText = "Browser not supported.";
+        return;
+      }
+
+      const container = document.querySelector(".shaka-video-container");
       const player = new shaka.Player(video);
-      const ui = new shaka.ui.Overlay(player, document.querySelector(".shaka-video-container"), video);
+
+      // --- RESTORED ORIGINAL UI CONFIGURATION ---
+      const ui = new shaka.ui.Overlay(player, container, video);
+      ui.configure({
+        singleClickForPlayAndPause: true,
+        controlPanelElements: [
+          'play_pause',
+          'time_and_duration',
+          'spacer',
+          'mute',
+          'volume',
+          'captions',
+          'picture_in_picture',
+          'airplay',
+          'cast',
+          'quality',
+          'fullscreen'
+        ],
+        addBigPlayButton: true,
+        seekBarColors: {
+          base: 'rgba(255,255,255,0.3)',
+          buffered: 'rgba(255,255,255,0.5)',
+          played: '#ffffff'
+        }
+      });
 
       const params = new URLSearchParams(location.search);
-      const streamURL = params.get("url") || "https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd";
+      const streamURL = params.get("url") ||
+        "https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd";
+
+      player.configure({
+        streaming: {
+          lowLatencyMode: true,
+        }
+      });
 
       try {
         await player.load(streamURL);
         overlay.classList.add("hide");
 
-        // --- FORCED PLAYBACK STRATEGY ---
-        video.muted = true; // Start muted to ensure the browser ALLOWS the video to start
+        // --- FORCED AUTOPLAY LOGIC ---
+        // Start muted to bypass browser block
+        video.muted = true; 
         video.play();
 
-        // Attempt to unmute immediately (Works if the user previously interacted with the site)
+        // Attempt immediate unmute
         setTimeout(() => {
           video.muted = false;
           video.play().catch(() => {
-            console.log("Browser blocked unmuted autoplay. Waiting for any click to restore sound.");
+            console.log("Waiting for user interaction to enable sound...");
           });
-        }, 100);
+        }, 150);
 
       } catch (err) {
+        overlay.innerText = "Failed to load stream";
         console.error(err);
       }
     });
 
-    // Also try to unmute on scroll or touch if they don't click
+    // Event listeners for mobile/touch interactions
     window.addEventListener('touchstart', forceUnmute, { once: true });
     window.addEventListener('mousedown', forceUnmute, { once: true });
   </script>
 </body>
-
 </html>
