@@ -20,14 +20,13 @@
       font-weight: bold;
       font-size: 18px;
       text-transform: uppercase;
-      opacity: 2; /* Reduced slightly for better visibility of video */
+      opacity: 2;
       z-index: 10;
       pointer-events: none;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
       user-select: none;
     }
 
-    /* Ensure Plyr takes up full height for orientation shifts */
     .plyr--video {
       height: 100% !important;
     }
@@ -45,7 +44,6 @@
   const video = document.getElementById('player');
   const source = new URLSearchParams(window.location.search).get("url") || "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8";
 
-  // Optimization Config for Faster Loading
   const hlsConfig = {
     enableWorker: true,
     lowLatencyMode: true,
@@ -56,13 +54,11 @@
     abandonFragmentTimeout: 3000
   };
 
-  function initializePlayer(playerInstance, hlsInstance = null) {
-    // Landscape Support Logic
+  function initializePlayer(playerInstance) {
+    // --- 📱 LANDSCAPE SUPPORT ---
     playerInstance.on('enterfullscreen', () => {
       if (screen.orientation && screen.orientation.lock) {
-        screen.orientation.lock('landscape').catch(err => {
-          console.warn("Orientation lock ignored:", err);
-        });
+        screen.orientation.lock('landscape').catch(err => console.log(err));
       }
     });
 
@@ -71,6 +67,18 @@
         screen.orientation.unlock();
       }
     });
+  }
+
+  // --- 🔊 UNMUTED AUTOPLAY LOGIC ---
+  function forceUnmutedPlay() {
+    video.muted = false;
+    video.volume = 1;
+    const playPromise = video.play();
+    if (playPromise !== undefined) {
+      playPromise.catch(() => {
+        console.log("Autoplay unmuted blocked by browser. User must click to hear sound.");
+      });
+    }
   }
 
   if (Hls.isSupported()) {
@@ -84,6 +92,7 @@
       
       const player = new Plyr(video, {
         autoplay: true,
+        muted: false, // Ensure it's not starting muted
         quality: {
           default: 0,
           options: qualityOptions,
@@ -95,18 +104,18 @@
         }
       });
 
-      initializePlayer(player, hls);
-      video.play().catch(() => {
-        console.log("Autoplay blocked, waiting for user interaction.");
-      });
+      initializePlayer(player);
+      forceUnmutedPlay();
     });
     window.hls = hls; 
   } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-    // For Safari/iOS native HLS support
     video.src = source; 
-    const player = new Plyr(video, { autoplay: true });
+    const player = new Plyr(video, { 
+      autoplay: true, 
+      muted: false 
+    });
     initializePlayer(player);
-    video.play();
+    forceUnmutedPlay();
   }
 </script>
 </body>
