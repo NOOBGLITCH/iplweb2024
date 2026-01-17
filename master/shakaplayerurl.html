@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>NoobGLTCH – Forced Autoplay Player</title>
+  <title>NoobGLTCH – Direct Forced Autoplay</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shaka-player/4.16.3/controls.css">
@@ -10,21 +10,20 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
   <style>
-    html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #000; font-family: 'Segoe UI', sans-serif; }
+    html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #000; font-family: sans-serif; }
     .shaka-video-container, video { width: 100%; height: 100%; background: #000; display: block; }
     
-    /* WM Opacity 2 (Full Visibility) */
     .watermark {
       position: absolute;
       top: 40px; 
       right: 20px;
-      opacity: 2; 
+      opacity: 2; /* Forced full visibility */
       font-weight: bold;
       color: #e53935;
       z-index: 10;
       pointer-events: none;
       font-size: 1.2rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
     }
 
     #overlay {
@@ -33,27 +32,11 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
       background: #000;
       color: #fff;
       z-index: 1000;
       transition: opacity 0.3s;
     }
-
-    /* Forced Start Button to enable audio */
-    #startBtn {
-      padding: 15px 30px;
-      font-size: 18px;
-      font-weight: bold;
-      color: #fff;
-      background: #e53935;
-      border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(229, 57, 53, 0.4);
-      display: none; /* Shown after load */
-    }
-
     #overlay.hide { opacity: 0; pointer-events: none; }
   </style>
 </head>
@@ -63,28 +46,20 @@
     <video id="video" playsinline autoplay></video>
   </div>
   <div class="watermark">@NOOBGLITCH</div>
-
-  <div id="overlay">
-    <div id="loader" style="margin-bottom: 20px;">Initializing Stream...</div>
-    <button id="startBtn">START STREAMING</button>
-  </div>
+  <div id="overlay">Loading...</div>
 
   <script>
     document.addEventListener("DOMContentLoaded", async () => {
       shaka.polyfill.installAll();
 
       const video = document.getElementById("video");
-      const startBtn = document.getElementById("startBtn");
       const overlay = document.getElementById("overlay");
-      const loader = document.getElementById("loader");
-      const container = document.querySelector(".shaka-video-container");
-
       const player = new shaka.Player(video);
-      const ui = new shaka.ui.Overlay(player, container, video);
+      const ui = new shaka.ui.Overlay(player, document.querySelector(".shaka-video-container"), video);
 
       ui.configure({
-        addBigPlayButton: false, // We use our own start button
-        controlPanelElements: ['play_pause', 'time_and_duration', 'spacer', 'mute', 'volume', 'quality', 'fullscreen']
+        controlPanelElements: ['play_pause', 'time_and_duration', 'spacer', 'mute', 'volume', 'quality', 'fullscreen'],
+        addBigPlayButton: true
       });
 
       const params = new URLSearchParams(location.search);
@@ -96,18 +71,28 @@
 
       try {
         await player.load(streamURL);
-        // Show Start Button once stream is ready
-        loader.style.display = "none";
-        startBtn.style.display = "block";
+        overlay.classList.add("hide");
 
-        startBtn.addEventListener("click", () => {
-          video.muted = false; // Forced unmuted
-          video.play();
-          overlay.classList.add("hide");
-        });
+        // --- FORCED DIRECT AUTOPLAY LOGIC ---
+        video.muted = false; // Try playing with sound first
+        let playPromise = video.play();
+
+        if (playPromise !== undefined) {
+          playPromise.catch(error => {
+            // If browser blocks unmuted play, we mute it to start, then unmute
+            console.log("Autoplay with sound blocked. Retrying muted...");
+            video.muted = true;
+            video.play();
+            
+            // Add a one-time click listener to the whole body to unmute
+            document.body.addEventListener('click', () => {
+              video.muted = false;
+            }, { once: true });
+          });
+        }
 
       } catch (err) {
-        loader.innerText = "Error: Failed to load stream.";
+        overlay.innerText = "Error loading stream.";
         console.error(err);
       }
     });
