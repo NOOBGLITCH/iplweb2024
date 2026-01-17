@@ -20,7 +20,7 @@
       font-weight: bold;
       font-size: 18px;
       text-transform: uppercase;
-      opacity: 2;
+      opacity: 2; /* Adjusted for visibility */
       z-index: 10;
       pointer-events: none;
       text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -42,14 +42,35 @@
 
   // Optimization Config for Faster Loading
   const hlsConfig = {
-    enableWorker: true,        // Offload processing to a web worker
-    lowLatencyMode: true,      // Reduces delay for live streams
-    backBufferLength: 30,      // Keeps less memory used
-    maxBufferLength: 10,       // Don't wait to buffer too much before starting
+    enableWorker: true,
+    lowLatencyMode: true,
+    backBufferLength: 30,
+    maxBufferLength: 10,
     maxMaxBufferLength: 20,
-    startLevel: -1,            // Auto-detect best start quality
-    abandonFragmentTimeout: 3000 // Quickly switch if a segment is slow
+    startLevel: -1,
+    abandonFragmentTimeout: 3000
   };
+
+  // Function to force landscape on Android/Mobile
+  async function forceLandscape() {
+    try {
+      // Browsers require Fullscreen before locking orientation
+      const container = document.documentElement; 
+      
+      if (container.requestFullscreen) {
+        await container.requestFullscreen();
+      } else if (container.webkitRequestFullscreen) {
+        await container.webkitRequestFullscreen();
+      }
+
+      // Lock to landscape
+      if (screen.orientation && screen.orientation.lock) {
+        await screen.orientation.lock('landscape').catch(err => console.log("Orientation lock ignored."));
+      }
+    } catch (error) {
+      console.warn("Fullscreen/Orientation shift failed: ", error);
+    }
+  }
 
   if (Hls.isSupported()) {
     const hls = new Hls(hlsConfig);
@@ -61,7 +82,7 @@
       const qualityOptions = [0, ...levels]; 
       
       const player = new Plyr(video, {
-        autoplay: true, // Attempt to play immediately
+        autoplay: true,
         quality: {
           default: 0,
           options: qualityOptions,
@@ -72,13 +93,26 @@
           }
         }
       });
-      video.play(); // Direct play call for speed
+
+      // Trigger orientation lock on first play/click
+      player.on('play', () => {
+        forceLandscape();
+      });
+
+      video.play().catch(() => {
+        console.log("Autoplay blocked, waiting for user interaction.");
+      });
     });
     window.hls = hls; 
+
   } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    // Safari fallback
     video.src = source; 
     const player = new Plyr(video, { autoplay: true });
-    video.play();
+    
+    player.on('play', () => {
+      forceLandscape();
+    });
   }
 </script>
 </body>
