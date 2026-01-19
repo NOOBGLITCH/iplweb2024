@@ -47,7 +47,7 @@
     Add <code>?url=YOUR_HLS_LINK</code> to the page URL.
   </div>
 
-  <script src="https://cdn.jsdelivr.net/gh/NOOBGLITCH/iplweb2024/playerjs2.js"></script>
+  <script src="playerjslive.js"></script>
 
   <script>
     // Get ?url= query parameter
@@ -63,10 +63,7 @@
         id: "player",
         file: streamURL,
         poster: "",       // optional splash image
-        autoplay: 0,
-        pip: 1,           // enable picture‑in‑picture if supported
-        pause: 1,
-        seek: 1
+        autoplay: 1,
       });
 
       console.log("🟢 Player.js ready – URL:", streamURL);
